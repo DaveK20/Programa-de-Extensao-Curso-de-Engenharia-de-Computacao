@@ -10,6 +10,7 @@ public class Autor {
 
     private String biografia;
 
+    
     private List<NomeAlternativo> nomeAlternativo = new ArrayList<NomeAlternativo> ();
 
 	
@@ -21,6 +22,7 @@ public class Autor {
 		setNomeAlternativo(nomeAlternativo);
 	}
 
+	
 	public int getId() {
 		return id;
 	}
