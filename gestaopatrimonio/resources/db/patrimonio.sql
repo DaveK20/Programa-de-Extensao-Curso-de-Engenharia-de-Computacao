@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`tipo_patrimonio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome_tipo_patrimonio` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE INDEX `Tipo_UNIQUE` (`nome_tipo_patrimonio` ASC) VISIBLE)
+  UNIQUE INDEX `Tipo_UNIQUE` (`nome_tipo_patrimonio` ASC) )
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
 
@@ -73,15 +73,15 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`patrimonio` (
   `cidade` VARCHAR(45) NOT NULL,
   `cep` INT NOT NULL,
   `local_guardado` VARCHAR(45) NOT NULL,
-  `assinatura` VARCHAR(45) NULL DEFAULT 'Assinatura ilegível',
-  `titulo` VARCHAR(45) NULL DEFAULT 'Título ilegível',
+  `assinatura` VARCHAR(45) NULL DEFAULT 'Assinatura ilegÃ­vel',
+  `titulo` VARCHAR(45) NULL DEFAULT 'TÃ­tulo ilegÃ­vel',
   `tipo_patrimonio_id` INT NOT NULL,
   `unidade_administrativa_id` INT NOT NULL,
   `classificacao_generica_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_patrimonio_tipo_patrimonio1_idx` (`tipo_patrimonio_id` ASC) VISIBLE,
-  INDEX `fk_patrimonio_unidade_administrativa1_idx` (`unidade_administrativa_id` ASC) VISIBLE,
-  INDEX `fk_patrimonio_classificacao_generica1_idx` (`classificacao_generica_id` ASC) VISIBLE,
+  INDEX `fk_patrimonio_tipo_patrimonio1_idx` (`tipo_patrimonio_id` ASC) ,
+  INDEX `fk_patrimonio_unidade_administrativa1_idx` (`unidade_administrativa_id` ASC) ,
+  INDEX `fk_patrimonio_classificacao_generica1_idx` (`classificacao_generica_id` ASC) ,
   CONSTRAINT `fk_patrimonio_tipo_patrimonio1`
     FOREIGN KEY (`tipo_patrimonio_id`)
     REFERENCES `patrimonio`.`tipo_patrimonio` (`id`)
@@ -145,9 +145,9 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`procedencia` (
   `pais_id` INT NOT NULL,
   `estado_id` INT NOT NULL,
   `cidade_id` INT NOT NULL,
-  INDEX `fk_procedencia_pais1_idx` (`pais_id` ASC) VISIBLE,
-  INDEX `fk_procedencia_estado1_idx` (`estado_id` ASC) VISIBLE,
-  INDEX `fk_procedencia_cidade1_idx` (`cidade_id` ASC) VISIBLE,
+  INDEX `fk_procedencia_pais1_idx` (`pais_id` ASC) ,
+  INDEX `fk_procedencia_estado1_idx` (`estado_id` ASC) ,
+  INDEX `fk_procedencia_cidade1_idx` (`cidade_id` ASC) ,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_procedencia_patrimonio1`
     FOREIGN KEY (`patrimonio_id`)
@@ -204,9 +204,9 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`aquisicao` (
   `data` DATE NOT NULL,
   `patrimonio_id` INT NOT NULL,
   `forma_aquisicao_id` INT NOT NULL,
-  INDEX `fk_forma_aquisicao_has_patrimonio_forma_aquisicao1_idx` (`forma_aquisicao_id` ASC) VISIBLE,
+  INDEX `fk_forma_aquisicao_has_patrimonio_forma_aquisicao1_idx` (`forma_aquisicao_id` ASC) ,
   PRIMARY KEY (`id`),
-  INDEX `fk_aquisicao_patrimonio1_idx` (`patrimonio_id` ASC) VISIBLE,
+  INDEX `fk_aquisicao_patrimonio1_idx` (`patrimonio_id` ASC) ,
   CONSTRAINT `fk_forma_aquisicao_has_patrimonio_forma_aquisicao1`
     FOREIGN KEY (`forma_aquisicao_id`)
     REFERENCES `patrimonio`.`forma_aquisicao` (`id`)
@@ -245,8 +245,8 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`imagem` (
   `tipo_imagem_id` INT NOT NULL,
   `patrimonio_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_imagem_tipo_imagem1_idx` (`tipo_imagem_id` ASC) VISIBLE,
-  INDEX `fk_imagem_patrimonio1_idx` (`patrimonio_id` ASC) VISIBLE,
+  INDEX `fk_imagem_tipo_imagem1_idx` (`tipo_imagem_id` ASC) ,
+  INDEX `fk_imagem_patrimonio1_idx` (`patrimonio_id` ASC) ,
   CONSTRAINT `fk_imagem_tipo_imagem1`
     FOREIGN KEY (`tipo_imagem_id`)
     REFERENCES `patrimonio`.`tipo_imagem` (`id`)
@@ -280,7 +280,7 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`nome_alternativo` (
   `nome_alternativo` VARCHAR(45) NOT NULL,
   `autor_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_nome_alternativo_autor1_idx` (`autor_id` ASC) VISIBLE,
+  INDEX `fk_nome_alternativo_autor1_idx` (`autor_id` ASC) ,
   CONSTRAINT `fk_nome_alternativo_autor1`
     FOREIGN KEY (`autor_id`)
     REFERENCES `patrimonio`.`autor` (`id`))
@@ -296,7 +296,7 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`palavra_chave` (
   `palavra_chave` VARCHAR(45) NOT NULL,
   `patrimonio_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_palavra_chave_patrimonio1_idx` (`patrimonio_id` ASC) VISIBLE,
+  INDEX `fk_palavra_chave_patrimonio1_idx` (`patrimonio_id` ASC) ,
   CONSTRAINT `fk_palavra_chave_patrimonio1`
     FOREIGN KEY (`patrimonio_id`)
     REFERENCES `patrimonio`.`patrimonio` (`id`)
@@ -313,8 +313,8 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`patrimonio_has_autor` (
   `patrimonio_id` INT NOT NULL,
   `autor_id` INT NOT NULL,
   PRIMARY KEY (`patrimonio_id`, `autor_id`),
-  INDEX `fk_patrimonio_has_autor_autor1_idx` (`autor_id` ASC) VISIBLE,
-  INDEX `fk_patrimonio_has_autor_patrimonio1_idx` (`patrimonio_id` ASC) VISIBLE,
+  INDEX `fk_patrimonio_has_autor_autor1_idx` (`autor_id` ASC) ,
+  INDEX `fk_patrimonio_has_autor_patrimonio1_idx` (`patrimonio_id` ASC) ,
   CONSTRAINT `fk_patrimonio_has_autor_autor1`
     FOREIGN KEY (`autor_id`)
     REFERENCES `patrimonio`.`autor` (`id`),
@@ -332,8 +332,8 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`patrimonio_has_material` (
   `patrimonio_id_patrimonio` INT NOT NULL,
   `material_id_material` INT NOT NULL,
   PRIMARY KEY (`patrimonio_id_patrimonio`, `material_id_material`),
-  INDEX `fk_patrimonio_has_material_material1_idx` (`material_id_material` ASC) VISIBLE,
-  INDEX `fk_patrimonio_has_material_patrimonio1_idx` (`patrimonio_id_patrimonio` ASC) VISIBLE,
+  INDEX `fk_patrimonio_has_material_material1_idx` (`material_id_material` ASC) ,
+  INDEX `fk_patrimonio_has_material_patrimonio1_idx` (`patrimonio_id_patrimonio` ASC) ,
   CONSTRAINT `fk_patrimonio_has_material_material1`
     FOREIGN KEY (`material_id_material`)
     REFERENCES `patrimonio`.`material` (`id`),
@@ -362,8 +362,8 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`patrimonio_has_tecnica` (
   `patrimonio_id` INT NOT NULL,
   `tecnica_id` INT NOT NULL,
   PRIMARY KEY (`patrimonio_id`, `tecnica_id`),
-  INDEX `fk_patrimonio_has_tecnica_tecnica1_idx` (`tecnica_id` ASC) VISIBLE,
-  INDEX `fk_patrimonio_has_tecnica_patrimonio1_idx` (`patrimonio_id` ASC) VISIBLE,
+  INDEX `fk_patrimonio_has_tecnica_tecnica1_idx` (`tecnica_id` ASC) ,
+  INDEX `fk_patrimonio_has_tecnica_patrimonio1_idx` (`patrimonio_id` ASC) ,
   CONSTRAINT `fk_patrimonio_has_tecnica_patrimonio1`
     FOREIGN KEY (`patrimonio_id`)
     REFERENCES `patrimonio`.`patrimonio` (`id`),
