@@ -22,11 +22,8 @@ public class Principal {
 		//System.out.println(autordao.insert(new Autor("joao","grosso",nomealternativo)));
 		
 		
-		/*for(Autor a: autordao.select_nome("joao")) {
-			System.out.println(a.toString());
-		}*/
 		
-		System.out.println(autordao.update(new Autor("joao","jose",nomealternativo),1));
+		
 		
 	}
 
