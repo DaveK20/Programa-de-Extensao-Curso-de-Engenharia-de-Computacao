@@ -18,9 +18,9 @@ public class Principal {
     	
  		while (continua) {
 	
-			System.out.println("#### Sistema de Gerenciamento de Patrimônio #### \n");
-			System.out.println("1 Cadastrar Patrimônio.");
-			System.out.println("2 Listar patrimônios.");
+			System.out.println("#### Sistema de Gerenciamento de Patrimï¿½nio #### \n");
+			System.out.println("1 Cadastrar Patrimï¿½nio.");
+			System.out.println("2 Listar patrimï¿½nios.");
 			System.out.println("5 Cadastrar Tecnica.");
 			System.out.println("6 Listar tecnicas.");
 			System.out.println("9 Sair.");             
@@ -29,7 +29,7 @@ public class Principal {
 	        String opcao = scan.next();
 	    	System.out.println("Sua opcao foi, " + opcao);
 	        if (opcao.equals("1")){
-	        	System.out.println("Digite a observação.");
+	        	System.out.println("Digite a observaï¿½ï¿½o.");
 	        	String observacoes = scan.next();
 	        	Patrimonio u = new Patrimonio();
 	        	u.setObservacoes(observacoes);
