@@ -6,7 +6,5 @@ public class UnidadeAdministrativa {
     public String sigla;
 
     public String nome;
-    
-    //public set
 
 }
