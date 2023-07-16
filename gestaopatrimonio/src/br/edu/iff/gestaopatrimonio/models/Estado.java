@@ -1,10 +1,10 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class Estado {
-    public int id;
+    private int id;
 
-    public String sigla;
+    private String sigla;
 
-    public String nome;
+    private String nome;
 
 }

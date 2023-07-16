@@ -1,10 +1,10 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class ClassificacaoGenerica {
-    public int id;
+    private int id;
 
-    public String nome;
+    private String nome;
 
-    public String descricao;
+    private String descricao;
 
 }

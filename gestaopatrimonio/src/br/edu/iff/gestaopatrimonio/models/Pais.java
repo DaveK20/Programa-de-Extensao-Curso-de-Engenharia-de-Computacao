@@ -2,8 +2,8 @@ package br.edu.iff.gestaopatrimonio.models;
 
 public class Pais {
 
-    public int id;
+    private int id;
 
-    public String nome;
+    private String nome;
 
 }

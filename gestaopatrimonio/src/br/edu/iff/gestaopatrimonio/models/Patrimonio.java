@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Patrimonio {
-    public int id;
+	private int id;
 
-    public String observacoes;
+	private String observacoes;
 
     public List<PalavraChave> palavrasChave = new ArrayList<PalavraChave> ();
 

@@ -1,12 +1,12 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class TipoImagem {
-    public int id;
+	private int id;
 
-    public String largura;
+	private String largura;
 
-    public String altura;
+	private String altura;
 
-    public String descricao;
+	private String descricao;
 
 }
