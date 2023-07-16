@@ -23,8 +23,20 @@ public class PatrimonioDAO {
 
 	public Patrimonio cadastrar(Patrimonio patrimonio) throws Exception {
 		try {
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO patrimonio (observacoes) VALUES (?)" );
-			ps.setString(1, patrimonio.getObservacoes());
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO patrimonio (numero_de_identificacao, observacoes, catalogacao, "
+					+ "tombo, inventario_museologico, inventario_patrimonial, local_guardado, tipo_patrimonio_id, unidade_administrativa_id, "
+					+ "classificacao_generica_id ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);\r\n"
+					+ "" );
+			ps.setString(1,"123456");
+			ps.setString(2, patrimonio.getObservacoes());
+			ps.setString(3,"Gr0001");
+			ps.setString(4,"00210");
+			ps.setString(5,"80.000.069");
+			ps.setString(6,"0171");
+			ps.setString(7,"Exposição Permanente – salão oval, nicho 1");
+			ps.setString(8,"1");
+			ps.setString(9,"2");
+			ps.setString(10,"1");
 			ps.execute();			
 		} catch (Exception e) {
 
