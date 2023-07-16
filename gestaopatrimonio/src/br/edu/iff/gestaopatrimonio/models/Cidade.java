@@ -1,8 +1,8 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class Cidade {
-    public int id;
+    private int id;
 
-    public String nome;
+    private String nome;
 
 }

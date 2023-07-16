@@ -2,14 +2,14 @@ package br.edu.iff.gestaopatrimonio.models;
 
 
 public class Procedencia {
-    public int id;
+	private int id;
 
-    public String data;
+	private String data;
 
-    public Pais pais;
+	private Pais pais;
 
-    public Estado estado;
+	private Estado estado;
 
-    public Cidade cidade;
+	private Cidade cidade;
 
 }

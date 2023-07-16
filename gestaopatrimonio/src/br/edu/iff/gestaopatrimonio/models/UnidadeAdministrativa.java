@@ -1,10 +1,10 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class UnidadeAdministrativa {
-    public int id;
+	private int id;
 
-    public String sigla;
+	private String sigla;
 
-    public String nome;
+	private String nome;
 
 }

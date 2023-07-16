@@ -1,10 +1,10 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class Aquisicao {
-    public int id;
+    private int id;
 
-    public String data;
+    private String data;
 
-    public FormaAquisicao formaAquisicao;
+    private FormaAquisicao formaAquisicao;
 
 }

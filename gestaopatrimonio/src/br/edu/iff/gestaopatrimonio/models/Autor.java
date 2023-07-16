@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Autor {
-    public int id;
+    private int id;
 
-    public String nome;
+    private String nome;
 
-    public String biografia;
+    private String biografia;
 
     public List<NomeAlternativo> nomeAlternativo = new ArrayList<NomeAlternativo> ();
 

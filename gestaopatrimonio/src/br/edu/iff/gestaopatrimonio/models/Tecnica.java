@@ -1,8 +1,8 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class Tecnica {
-    public int id;
+	private int id;
 
-    public String nome;
+	private String nome;
 
 }

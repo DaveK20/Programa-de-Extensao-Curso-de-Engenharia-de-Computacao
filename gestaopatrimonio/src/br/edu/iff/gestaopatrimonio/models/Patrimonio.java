@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Patrimonio {
+<<<<<<< HEAD
     private int id;
+=======
+	private int id;
+>>>>>>> branch 'main' of https://github.com/AyrtonBorges/Programa-de-Extensao-Curso-de-Engenharia-de-Computacao.git
 
+<<<<<<< HEAD
     private String observacoes;
+=======
+	private String observacoes;
+>>>>>>> branch 'main' of https://github.com/AyrtonBorges/Programa-de-Extensao-Curso-de-Engenharia-de-Computacao.git
 
     private List<PalavraChave> palavrasChave = new ArrayList<PalavraChave> ();
 

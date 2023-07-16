@@ -1,14 +1,14 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class Imagem {
-    public int id;
+    private int id;
 
-    public String nome;
+    private String nome;
 
-    public String data;
+    private String data;
 
-    public String arquivo;
+    private String arquivo;
 
-    public TipoImagem tipoImagem;
+    private TipoImagem tipoImagem;
 
 }
