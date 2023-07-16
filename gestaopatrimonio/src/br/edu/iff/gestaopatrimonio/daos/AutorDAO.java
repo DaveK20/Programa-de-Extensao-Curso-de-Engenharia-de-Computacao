@@ -15,8 +15,10 @@ public class AutorDAO {
 
 private final String INSERT = "INSERT INTO autor(nome, biografia) VALUES (?,?)";	
 private final String SELECT_NOME = "SELECT * FROM autor WHERE nome = ?";
-private final String UPDATE = "UPDATE autor SET nome =?, biografia =? WHERE id=?";
-	
+private final String UPDATE = "UPDATE autor SET nome = ?, biografia =? WHERE id=?";
+private final String SELECTALL = "SELECT * FROM autor";	
+private final String DELETE = "DELETE FROM autor WHERE id = ?";
+private final String DELETEALL = "DELETE FROM autor";
 private Connection connection;
 	
 	public AutorDAO() {
@@ -43,13 +45,13 @@ private Connection connection;
 		}
 		
 	}
+	
 	/**
 	 * 
 	 * @param nome
 	 * @return Retorna uma lista de autores com o nome solicitado
-	 */
-	
-	public List<Autor> select_nome(String nome) {
+	 */	
+	public List<Autor> selectNome(String nome) {
 		try {	
 			
 			List<Autor> autores = new ArrayList<>();
@@ -72,13 +74,18 @@ private Connection connection;
 		return null;
 	}
 	
-	
-	public boolean update(Autor autor) {
+	/**
+	 * 	
+	 * @param autor
+	 * @param id
+	 * @return Atualiza um autor no banco, recebendo um novo autor, e o id referente a ele no banco
+	 */
+	public boolean update(Autor autor, int id) {
 		try {
-			PreparedStatement ps = connection.prepareStatement(INSERT);
+			PreparedStatement ps = connection.prepareStatement(UPDATE);
 			ps.setString(1,autor.getNome());
 			ps.setString(2,autor.getBiografia());
-			ps.setInt(3, autor.getId());
+			ps.setInt(3, id);
 			
 			ps.execute();
 			return true;
@@ -89,4 +96,65 @@ private Connection connection;
 		
 	}
 	
+	/**
+	 * 
+	 * @return Retorna todos os autores cadastrados no banco;
+	 */	
+	public List<Autor> selectAll() {
+		try {	
+			
+			List<Autor> autores = new ArrayList<>();
+			List<NomeAlternativo> nomealternativo = new ArrayList<>();
+			PreparedStatement ps;
+			ps = connection.prepareStatement(SELECTALL);			
+			ResultSet result =  ps.executeQuery();
+			while(result.next()) {
+				Autor autor = new Autor(result.getString("nome"),result.getString("biografia"),nomealternativo);
+				autor.setId(result.getInt("id"));
+				autores.add(autor);
+				
+			}			
+			return autores;
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	
+	/**
+	 * 
+	 * @param id
+	 * @return Deleta um autor do banco de acordo com o seu id específico
+	 */	
+	public boolean delete( int id) {
+		try {
+			PreparedStatement ps = connection.prepareStatement(DELETE);
+			ps.setInt(1,id);			
+			
+			ps.execute();
+			return true;
+		} catch (SQLException e) {
+			e.getStackTrace();
+			return false;			
+		}
+		
+	}
+	
+	/**
+	 * 
+	 * @return Apaga todos os dados da tabela autor
+	 * 
+	 */	
+	public boolean deleteAll() {
+		try {
+			PreparedStatement ps = connection.prepareStatement(DELETEALL);				
+			
+			ps.execute();
+			return true;
+		} catch (SQLException e) {
+			e.getStackTrace();
+			return false;			
+		}
+	}
 }
