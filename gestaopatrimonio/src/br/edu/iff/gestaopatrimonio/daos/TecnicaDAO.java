@@ -23,7 +23,7 @@ public class TecnicaDAO {
 	public Tecnica cadastrarTecnica(Tecnica tecnica) throws Exception {
 		try {
 			PreparedStatement ps = connection.prepareStatement("INSERT INTO tecnica (nome) VALUES (?)" );
-			ps.setString(1, tecnica.nome);
+			//ps.setString(1, tecnica.nome);
 			ps.execute();			
 		} catch (Exception e) {
 
@@ -41,7 +41,7 @@ public class TecnicaDAO {
 			List<Tecnica> tecnicas = new ArrayList<Tecnica>();
             do {
                 Tecnica tecnica = new Tecnica();
-                tecnica.nome = result.getString(2);
+                //tecnica.nome = result.getString(2);
                 tecnicas.add(tecnica);
             }while (result.next());
 			return tecnicas;

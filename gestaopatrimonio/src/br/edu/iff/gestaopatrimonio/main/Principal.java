@@ -47,15 +47,15 @@ public class Principal {
 	        	System.out.println("Digite o nome da tecnica");
 	        	String nome = scan.next();
 	        	Tecnica u = new Tecnica();
-	        	u.nome =nome;
+	        	//u.nome =nome;
 	        	u = tecnicaController.cadastrarTecnica(u);
-	        	System.out.println("Tecnica cadastrado: "+u.nome);
+	        	//System.out.println("Tecnica cadastrado: "+u.nome);
 	        	
 	        }
 	        if (opcao.equals("6")){
 	        	List<Tecnica> us = tecnicaController.listarTecnicas();
 	        	for (Tecnica t : us) {
-					System.out.println(t.nome);
+					//System.out.println(t.nome);
 				}
 	        }
 	        if (opcao.equals("9")){
