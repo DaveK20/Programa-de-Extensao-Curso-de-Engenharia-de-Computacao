@@ -14,9 +14,9 @@ public class Principal {
     	TecnicaController tecnicaController = new TecnicaController();
  		while (continua) {
 	
-			System.out.println("#### Sistema de Gerenciamento de Biblioteca #### \n");
-			System.out.println("5 Cadastrar usuario.");
-			System.out.println("6 Listar usuarios.");
+			System.out.println("#### Sistema de Gerenciamento de Ptrimônio #### \n");
+			System.out.println("5 Cadastrar Tecnica.");
+			System.out.println("6 Listar tecnicas.");
 			System.out.println("9 Sair.");             
 	
 		    Scanner scan = new Scanner(System.in);
@@ -24,7 +24,7 @@ public class Principal {
 	    	System.out.println("Sua opcao foi, " + opcao);
 	    	
 	        if (opcao.equals("5")){
-	        	System.out.println("Digite o nome do usuario");
+	        	System.out.println("Digite o nome da tecnica");
 	        	String nome = scan.next();
 	        	Tecnica u = new Tecnica();
 	        	u.nome =nome;
