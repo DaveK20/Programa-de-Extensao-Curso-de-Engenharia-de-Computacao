@@ -10,7 +10,7 @@ public class Autor {
 
     private String biografia;
 
-    public List<NomeAlternativo> nomeAlternativo = new ArrayList<NomeAlternativo> ();
+    private List<NomeAlternativo> nomeAlternativo = new ArrayList<NomeAlternativo> ();
 
 	
 
