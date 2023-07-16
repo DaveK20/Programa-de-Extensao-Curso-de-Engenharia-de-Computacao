@@ -11,11 +11,13 @@ public class JDBCConnection {
 	public Connection getConnection() {
 		try {
 			
-			 Dotenv dotenv = Dotenv.configure()
+			/* Dotenv dotenv = Dotenv.configure()
 					    .directory("./src/")
 					    .filename(".env") // instead of '.env', use 'env'
 					    .load();
 			return  DriverManager.getConnection("jdbc:mysql://localhost:"+dotenv.get("PORT")+"/"+dotenv.get("DB")+"?user="+dotenv.get("USER")+dotenv.get("PASSWORD"));
+			*/
+			return DriverManager.getConnection("jdbc:mysql://localhost:3306/patrimonio?user=root");
 		} catch (SQLException e) {
 			e.printStackTrace();
 			// TODO: handle exception
