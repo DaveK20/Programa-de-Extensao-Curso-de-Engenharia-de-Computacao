@@ -15,11 +15,6 @@ public class JDBCConnection {
 					    .directory("./src/")
 					    .filename(".env") // instead of '.env', use 'env'
 					    .load();
-
-			System.out.println(dotenv.get("USER")); // Return your system USERNAME configuration.	
-			//return  DriverManager.getConnection("jdbc:sqLite:biblioteca.db");
-			System.out.println(dotenv.get("PASSWORD")); // Return your system USERNAME configuration.	
-
 			return  DriverManager.getConnection("jdbc:mysql://localhost:"+dotenv.get("PORT")+"/"+dotenv.get("DB")+"?user="+dotenv.get("USER")+dotenv.get("PASSWORD"));
 		} catch (SQLException e) {
 			e.printStackTrace();

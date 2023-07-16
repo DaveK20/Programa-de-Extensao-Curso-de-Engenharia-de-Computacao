@@ -60,28 +60,28 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`patrimonio` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `observacoes` VARCHAR(45) NULL DEFAULT NULL,
   `numero_de_identificacao` INT NOT NULL,
-  `pesquisa_museologica` VARCHAR(45) NOT NULL,
-  `tema` VARCHAR(45) NOT NULL,
+  `pesquisa_museologica` VARCHAR(45) NULL,
+  `tema` VARCHAR(45) NULL,
   `catalogacao` INT NOT NULL,
   `tombo` INT NOT NULL,
-  `movimento` VARCHAR(45) NOT NULL,
+  `movimento` VARCHAR(45) NULL,
   `inventario_museologico` INT NOT NULL,
   `inventario_patrimonial` INT NOT NULL,
-  `informacao_data` VARCHAR(100) NOT NULL,
-  `pais` VARCHAR(45) NOT NULL,
-  `estado` VARCHAR(45) NOT NULL,
-  `cidade` VARCHAR(45) NOT NULL,
-  `cep` INT NOT NULL,
+  `informacao_data` VARCHAR(100) NULL,
+  `pais` VARCHAR(45) NULL,
+  `estado` VARCHAR(45) NULL,
+  `cidade` VARCHAR(45) NULL,
+  `cep` INT NULL,
   `local_guardado` VARCHAR(45) NOT NULL,
-  `assinatura` VARCHAR(45) NULL DEFAULT 'Assinatura ilegÃ­vel',
-  `titulo` VARCHAR(45) NULL DEFAULT 'TÃ­tulo ilegÃ­vel',
+  `assinatura` VARCHAR(45) NULL DEFAULT 'Assinatura ilegível',
+  `titulo` VARCHAR(45) NULL DEFAULT 'Título ilegível',
   `tipo_patrimonio_id` INT NOT NULL,
   `unidade_administrativa_id` INT NOT NULL,
   `classificacao_generica_id` INT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_patrimonio_tipo_patrimonio1_idx` (`tipo_patrimonio_id` ASC) ,
-  INDEX `fk_patrimonio_unidade_administrativa1_idx` (`unidade_administrativa_id` ASC) ,
-  INDEX `fk_patrimonio_classificacao_generica1_idx` (`classificacao_generica_id` ASC) ,
+  INDEX `fk_patrimonio_tipo_patrimonio1_idx` (`tipo_patrimonio_id` ASC) VISIBLE,
+  INDEX `fk_patrimonio_unidade_administrativa1_idx` (`unidade_administrativa_id` ASC) VISIBLE,
+  INDEX `fk_patrimonio_classificacao_generica1_idx` (`classificacao_generica_id` ASC) VISIBLE,
   CONSTRAINT `fk_patrimonio_tipo_patrimonio1`
     FOREIGN KEY (`tipo_patrimonio_id`)
     REFERENCES `patrimonio`.`tipo_patrimonio` (`id`)
@@ -99,7 +99,6 @@ CREATE TABLE IF NOT EXISTS `patrimonio`.`patrimonio` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb3;
-
 
 -- -----------------------------------------------------
 -- Table `patrimonio`.`pais`
