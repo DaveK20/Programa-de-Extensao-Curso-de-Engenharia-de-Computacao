@@ -8,24 +8,24 @@ public class Patrimonio {
 
 	private String observacoes;
 
-    public List<PalavraChave> palavrasChave = new ArrayList<PalavraChave> ();
+    private List<PalavraChave> palavrasChave = new ArrayList<PalavraChave> ();
 
-    public List<Material> materiais = new ArrayList<Material> ();
+    private List<Material> materiais = new ArrayList<Material> ();
 
-    public List<Procedencia> procedencias = new ArrayList<Procedencia> ();
+    private List<Procedencia> procedencias = new ArrayList<Procedencia> ();
 
-    public List<Autor> autores = new ArrayList<Autor> ();
+    private List<Autor> autores = new ArrayList<Autor> ();
 
-    public TipoPatrimonio tipoPatrimonio;
+    private TipoPatrimonio tipoPatrimonio;
 
-    public UnidadeAdministrativa unidadeAdministrativa;
+    private UnidadeAdministrativa unidadeAdministrativa;
 
-    public List<Imagem> imagens = new ArrayList<Imagem> ();
+    private List<Imagem> imagens = new ArrayList<Imagem> ();
 
-    public List<Tecnica> tecnicas = new ArrayList<Tecnica> ();
+    private List<Tecnica> tecnicas = new ArrayList<Tecnica> ();
 
-    public ClassificacaoGenerica classificacaoGenerica;
+    private ClassificacaoGenerica classificacaoGenerica;
 
-    public List<Aquisicao> aquisicoes = new ArrayList<Aquisicao> ();
+    private List<Aquisicao> aquisicoes = new ArrayList<Aquisicao> ();
 
 }
