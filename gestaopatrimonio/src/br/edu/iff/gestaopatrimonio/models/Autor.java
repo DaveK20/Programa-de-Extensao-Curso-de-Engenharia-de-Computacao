@@ -14,9 +14,8 @@ public class Autor {
 
 	
 
-	public Autor(int id, String nome, String biografia, List<NomeAlternativo> nomeAlternativo) {
-		super();
-		setId(id);
+	public Autor(String nome, String biografia, List<NomeAlternativo> nomeAlternativo) {
+		super();		
 		setNome(nome);
 		setBiografia(biografia);
 		setNomeAlternativo(nomeAlternativo);
