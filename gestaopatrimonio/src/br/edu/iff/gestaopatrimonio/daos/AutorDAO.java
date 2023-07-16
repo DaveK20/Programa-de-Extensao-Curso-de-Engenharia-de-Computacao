@@ -14,7 +14,8 @@ import br.edu.iff.gestaopatrimonio.utils.JDBCConnection;
 public class AutorDAO {
 
 private final String INSERT = "INSERT INTO autor(nome, biografia) VALUES (?,?)";	
-private final String SELECT_NOME = "SELECT * FROM pessoas WHERE nome = ?";
+private final String SELECT_NOME = "SELECT * FROM autor WHERE nome = ?";
+private final String UPDATE = "UPDATE autor SET nome =?, biografia =? WHERE id=?";
 	
 private Connection connection;
 	
@@ -42,6 +43,11 @@ private Connection connection;
 		}
 		
 	}
+	/**
+	 * 
+	 * @param nome
+	 * @return Retorna uma lista de autores com o nome solicitado
+	 */
 	
 	public List<Autor> select_nome(String nome) {
 		try {	
@@ -53,8 +59,10 @@ private Connection connection;
 			ps.setString(1, nome);
 			ResultSet result =  ps.executeQuery();
 			while(result.next()) {
-				new Autor(result.getString("nome"),result.getString("endereco"),nomealternativo).setId(result.getInt("id"));;
-				autores.add(new Autor(result.getString("nome"),result.getString("endereco"),nomealternativo));
+				Autor autor = new Autor(result.getString("nome"),result.getString("biografia"),nomealternativo);
+				autor.setId(result.getInt("id"));
+				autores.add(autor);
+				
 			}			
 			return autores;
 
@@ -64,5 +72,21 @@ private Connection connection;
 		return null;
 	}
 	
+	
+	public boolean update(Autor autor) {
+		try {
+			PreparedStatement ps = connection.prepareStatement(INSERT);
+			ps.setString(1,autor.getNome());
+			ps.setString(2,autor.getBiografia());
+			ps.setInt(3, autor.getId());
+			
+			ps.execute();
+			return true;
+		} catch (SQLException e) {
+			e.getStackTrace();
+			return false;			
+		}
+		
+	}
 	
 }
