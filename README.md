@@ -11,4 +11,4 @@
 - **Árlisson** - Autor
 - **João** - Nome alternativo
 - **Davi** - Material
-- **Halisson Jose Soares da Rocha** - Patrimônio
+- **Halisson José Soares da Rocha** - Patrimônio
