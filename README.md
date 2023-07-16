@@ -1,6 +1,6 @@
 # Programa-de-Extensao-Curso-de-Engenharia-de-Computacao
-gabi- palavra chave 
-aline- procedência 
+gabi- palavra chave
+aline- procedência
 lucas-material 
 yan- técnica 
 rafael- tipo de patrimônio
