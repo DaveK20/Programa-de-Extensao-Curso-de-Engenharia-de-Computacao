@@ -6,7 +6,7 @@
 - **Lucas** - Material
 - **Yan** - Técnica, Unidade Administrativa e Classificação Genérica
 - **Rafael** - Tipo de patrimônio
-- **Edivan** - Tipo de imagem
+- **Edivan** - Tipo de imagem ✅
 - **Ayrton** - Formas de aquisição
 - **Árlisson** - Autor
 - **João** - Nome alternativo
