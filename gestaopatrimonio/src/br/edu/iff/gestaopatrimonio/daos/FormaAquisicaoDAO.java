@@ -16,25 +16,17 @@ public class FormaAquisicaoDAO {
     }
 
     // Create - Inserir uma nova forma de aquisição
-    public void insertFormaAquisicao(FormaAquisicao formaAquisicao) {
+    public boolean insertFormaAquisicao(FormaAquisicao formaAquisicao) {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO forma_aquisicao (tipo) VALUES (?)",
                     Statement.RETURN_GENERATED_KEYS);
 
-            statement.setString(1, formaAquisicao.getNome());
-
-            int rowsAffected = statement.executeUpdate();
-
-            if (rowsAffected > 0) {
-                ResultSet generatedKeys = statement.getGeneratedKeys();
-                if (generatedKeys.next()) {
-                    int id = generatedKeys.getInt(1);
-                    formaAquisicao.setId(id);
-                }
-            }
+            statement.setString(1, formaAquisicao.getTipo());
+            return statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -62,17 +54,19 @@ public class FormaAquisicaoDAO {
     }
 
     // Update - Atualizar uma forma de aquisição existente
-    public void updateFormaAquisicao(FormaAquisicao formaAquisicao) {
+    public boolean updateFormaAquisicao(FormaAquisicao formaAquisicao) {
         try {
             PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE forma_aquisicao SET nome = ? WHERE id = ?");
+                    "UPDATE forma_aquisicao SET tipo = ? WHERE id = ?");
 
-            statement.setString(1, formaAquisicao.getNome());
+            statement.setString(1, formaAquisicao.getTipo());
             statement.setInt(2, formaAquisicao.getId());
 
             statement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
     
@@ -87,9 +81,9 @@ public class FormaAquisicaoDAO {
             ResultSet resultSet = statement.executeQuery();
 
             if (resultSet.next()) {
-                String nome = resultSet.getString("nome");
+                String tipo = resultSet.getString("tipo");
 
-                formaAquisicao = new FormaAquisicao(nome);
+                formaAquisicao = new FormaAquisicao(tipo);
                 formaAquisicao.setId(id);
             }
         } catch (SQLException e) {
@@ -100,7 +94,7 @@ public class FormaAquisicaoDAO {
     }
 
     // Delete - Excluir uma forma de aquisição
-    public void deleteFormaAquisicao(int id) {
+    public boolean deleteFormaAquisicao(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "DELETE FROM forma_aquisicao WHERE id = ?");
@@ -108,8 +102,10 @@ public class FormaAquisicaoDAO {
             statement.setInt(1, id);
 
             statement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 }
