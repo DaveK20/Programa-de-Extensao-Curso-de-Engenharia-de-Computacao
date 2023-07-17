@@ -4,6 +4,11 @@ public class NomeAlternativo {
     private int id;
     private String nome;
 
+    
+    public NomeAlternativo(String nome) {
+    	setNome(nome);
+    }
+    
     public int getId() {
         return id;
     }
