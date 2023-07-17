@@ -14,13 +14,10 @@ public class Principal {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		AutorController autorcontroller = new AutorController();
-		
-		List<NomeAlternativo> nomealternativo = new ArrayList<>();
-		
-				
-		System.out.println(autorcontroller.insert(new Autor("Arlisson","HAHAHAHA",nomealternativo)));
-		
+		//AutorController autorcontroller = new AutorController();
+		//List<NomeAlternativo> nomealternativo = new ArrayList<>();
+		//System.out.println(autorcontroller.insert(new Autor("Arlisson","HAHAHAHA",nomealternativo)));
+		PatrimonioController patrimonioController = new PatrimonioController();
 		
 		
 		
