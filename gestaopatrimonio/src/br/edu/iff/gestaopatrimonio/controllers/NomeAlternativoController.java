@@ -1,3 +1,4 @@
+package br.edu.iff.gestaopatrimonio.daos;
 import java.util.List;
 
 public class NomeAlternativoController {
