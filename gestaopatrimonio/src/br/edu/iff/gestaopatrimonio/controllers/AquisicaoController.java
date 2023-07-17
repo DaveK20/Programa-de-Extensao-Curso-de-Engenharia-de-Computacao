@@ -14,7 +14,10 @@ public class AquisicaoController {
 
     // Inserir uma nova aquisição
     public void inserirAquisicao(Aquisicao aquisicao, int patrimonio_id) {
-        aquisicaoDAO.insertAquisicao(aquisicao, patrimonio_id);
+        if(aquisicaoDAO.insertAquisicao(aquisicao, patrimonio_id))
+        	System.out.println("Inserido com sucesso!");
+        else
+        	System.out.println("Ocorreu erro ao inserir!");
     }
 
     // Obter todas as aquisições
@@ -24,16 +27,29 @@ public class AquisicaoController {
 
     // Atualizar uma aquisição existente
     public void atualizarAquisicao(Aquisicao aquisicao) {
-        aquisicaoDAO.updateAquisicao(aquisicao);
+        if(aquisicaoDAO.updateAquisicao(aquisicao))
+        	System.out.println("Atualizado com sucesso!");
+        else
+        	System.out.println("Ocorreu erro ao atualizar!");
     }
 
     // Excluir uma aquisição
     public void excluirAquisicao(int id) {
-        aquisicaoDAO.deleteAquisicao(id);
+        if(aquisicaoDAO.deleteAquisicao(id))
+        	System.out.println("Excluído com sucesso!");
+        else
+        	System.out.println("Ocorreu erro ao excluir!");
     }
     
+    // Obter todas Aquisições por ID do Patrimônio
     public List<Aquisicao> obterTodasAquisicoesporPatrimonioID(int patrimonio_id)
     {
     	return aquisicaoDAO.getAllAquisicaoByIdPatrimonio(patrimonio_id);
+    }
+    
+    // Obter Aquisição por ID
+    public Aquisicao obterAquisicaoporID(int id)
+    {
+    	return aquisicaoDAO.getAquisicaoById(id);
     }
 }
