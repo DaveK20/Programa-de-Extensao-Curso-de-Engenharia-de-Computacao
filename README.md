@@ -8,7 +8,7 @@
 - **Rafael** - Tipo de patrimônio
 - **Edivan** - Tipo de imagem ✅
 - **Ayrton** - Formas de aquisição e Aquisição ✅
-- **Árlisson** - Autor
+- **Árlisson** - Autor ✅
 - **João** - Nome alternativo
 - **Davi** - Material
 - **Halisson José Soares da Rocha** - Patrimônio
