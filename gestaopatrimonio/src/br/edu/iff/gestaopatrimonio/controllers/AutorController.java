@@ -11,10 +11,12 @@ import br.edu.iff.gestaopatrimonio.models.*;
 
 public class AutorController {
 
-	AutorDAO autordao = new AutorDAO();
+	private AutorDAO autordao;
 	
 	
-	
+	public AutorController() {
+		this.autordao = new AutorDAO();
+	}
 	/**
 	 *  
 	 * 
