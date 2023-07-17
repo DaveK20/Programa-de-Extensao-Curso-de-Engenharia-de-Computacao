@@ -3,11 +3,14 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.iff.gestaopatrimonio.models.NomeAlternativo;
+import br.edu.iff.gestaopatrimonio.utils.JDBCConnection;
+
 public class NomeAlternativoDAO {
     private Connection conexao;
 
     public NomeAlternativoDAO() {
-    	connection = (new JDBCConnection()).getConnection();
+    	Connection connection = (new JDBCConnection()).getConnection();
     }
 
     public List<NomeAlternativo> listarNomesAlternativos() {
