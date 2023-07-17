@@ -46,9 +46,8 @@ public class Principal {
 	        if (opcao.equals("5")){
 	        	System.out.println("Digite o nome da tecnica");
 	        	String nome = scan.next();
-	        	Tecnica u = new Tecnica();
 	        	//u.nome =nome;
-	        	u = tecnicaController.cadastrarTecnica(u);
+	        	tecnicaController.cadastrarTecnica(nome);
 	        	//System.out.println("Tecnica cadastrado: "+u.nome);
 	        	
 	        }
