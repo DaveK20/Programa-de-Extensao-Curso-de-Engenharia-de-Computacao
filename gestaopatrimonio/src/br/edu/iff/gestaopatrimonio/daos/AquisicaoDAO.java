@@ -18,7 +18,7 @@ public class AquisicaoDAO {
     }
 
     // Create - Inserir uma nova aquisição
-    public void insertAquisicao(Aquisicao aquisicao, int patrimonio_id) {
+    public boolean insertAquisicao(Aquisicao aquisicao, int patrimonio_id) {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO aquisicao (data, patrimonio_id, forma_aquisicao_id) VALUES (?, ?, ?)",
@@ -28,17 +28,10 @@ public class AquisicaoDAO {
             statement.setInt(2, patrimonio_id);
             statement.setInt(3, aquisicao.getFormaAquisicao().getId());
 
-            int rowsAffected = statement.executeUpdate();
-
-            if (rowsAffected > 0) {
-                ResultSet generatedKeys = statement.getGeneratedKeys();
-                if (generatedKeys.next()) {
-                    int id = generatedKeys.getInt(1);
-                    aquisicao.setId(id);
-                }
-            }
+            return statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
@@ -71,7 +64,7 @@ public class AquisicaoDAO {
     }
 
     // Update - Atualizar uma aquisição existente
-    public void updateAquisicao(Aquisicao aquisicao) {
+    public boolean updateAquisicao(Aquisicao aquisicao) {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "UPDATE aquisicao SET data = ?, forma_aquisicao_id = ? WHERE id = ?");
@@ -81,13 +74,15 @@ public class AquisicaoDAO {
             statement.setInt(3, aquisicao.getId());
 
             statement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
 
     // Delete - Excluir uma aquisição
-    public void deleteAquisicao(int id) {
+    public boolean deleteAquisicao(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement(
                     "DELETE FROM aquisicao WHERE id = ?");
@@ -95,8 +90,10 @@ public class AquisicaoDAO {
             statement.setInt(1, id);
 
             statement.executeUpdate();
+            return true;
         } catch (SQLException e) {
             e.printStackTrace();
+            return false;
         }
     }
     
