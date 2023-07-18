@@ -1,5 +1,7 @@
 package br.edu.iff.gestaopatrimonio.utils;
-
+/**
+ * @author hj_ro
+ */
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;

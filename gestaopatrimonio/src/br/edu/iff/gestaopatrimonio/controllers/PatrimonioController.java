@@ -1,5 +1,7 @@
 package br.edu.iff.gestaopatrimonio.controllers;
-
+/**
+ * @author hj_ro
+ */
 import java.util.List;
 
 import br.edu.iff.gestaopatrimonio.daos.PatrimonioDAO;
@@ -18,5 +20,16 @@ public class PatrimonioController {
 		return patrimonioDAO.listar();
 	}	
 	
+	public Boolean atualizar(Patrimonio patrimonio, int id) {
+		return atualizar(patrimonio,id);
+	}
+	
+	public Boolean apagar(int id) {
+		return apagar(id);
+	}
+	
+	public List<Patrimonio> buscarPorTitulo(String titulo) {
+		return patrimonioDAO.buscarPorTitulo(titulo);
+	}
 	
 }

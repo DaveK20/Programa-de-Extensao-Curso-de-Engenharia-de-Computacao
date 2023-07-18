@@ -1,5 +1,8 @@
 package br.edu.iff.gestaopatrimonio.models;
 
+/**
+ * @author hj_ro
+ */
 import java.util.ArrayList;
 import java.util.List;
 

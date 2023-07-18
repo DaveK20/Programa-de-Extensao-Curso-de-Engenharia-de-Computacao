@@ -1,5 +1,8 @@
 package br.edu.iff.gestaopatrimonio;
-
+/**
+ * @author hj_ro
+ * @author 
+ */
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -46,7 +49,11 @@ public class Principal {
 			System.out.println("Sua opcao foi, " + opcao);
 
 			if (opcao.equals("1")) {
-
+				
+				/**
+				 * @author hj_ro
+				 * Teste cadastro de patrimônio.
+				 */
 				Patrimonio patrimonio = new Patrimonio();
 				patrimonio.setObservacoes("Patrimônio da comunidade de BJI");
 				patrimonio.setNumeroDeIdentificacao(123456);
@@ -76,10 +83,23 @@ public class Principal {
 				System.out.println(patrimonio.getTitulo() + " : " + patrimonio.getObservacoes() + " : "
 						+ patrimonio.getLocalGuardado());
 
+				/**
+				 * @author hj_ro
+				 * Teste de listagem de patrimônio.
+				 */
 				List<Patrimonio> patrimonios = patrimonioController.listar();
 				for (Patrimonio patrimonio2 : patrimonios) {
 					System.out.println(patrimonio2.getId() + " : " + patrimonio2.getTitulo() + " : "
 							+ patrimonio2.getObservacoes() + " : " + patrimonio2.getLocalGuardado());
+				}
+				
+				/**
+				 * @author hj_ro
+				 * Teste busca de patrimônio.
+				 */
+				List<Patrimonio> patrimonios2 =  patrimonioController.buscarPorTitulo("T");
+				for (Patrimonio patrimonio2 : patrimonios2) {
+					System.out.println(patrimonio2.getId()+ " : "+patrimonio2.getTitulo());
 				}
 			}
 			if (opcao.equals("2")) {
