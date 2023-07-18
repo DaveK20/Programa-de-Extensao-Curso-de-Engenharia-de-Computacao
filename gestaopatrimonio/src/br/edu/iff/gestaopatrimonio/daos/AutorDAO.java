@@ -55,13 +55,14 @@ private Connection connection;
 		try {	
 			
 			List<Autor> autores = new ArrayList<>();
-			List<NomeAlternativo> nomealternativo = new ArrayList<>();
+			NomeAlternativoDAO nomealternativo = new NomeAlternativoDAO();
 			PreparedStatement ps;
 			ps = connection.prepareStatement(SELECT_NOME);
 			ps.setString(1, nome);
 			ResultSet result =  ps.executeQuery();
 			while(result.next()) {
-				Autor autor = new Autor(result.getString("nome"),result.getString("biografia"),nomealternativo);
+				
+				Autor autor = new Autor(result.getString("nome"),result.getString("biografia"),nomealternativo.selectNomes(result.getInt("id")));
 				autor.setId(result.getInt("id"));
 				autores.add(autor);
 				
@@ -104,12 +105,13 @@ private Connection connection;
 		try {	
 			
 			List<Autor> autores = new ArrayList<>();
-			List<NomeAlternativo> nomealternativo = new ArrayList<>();
+			NomeAlternativoDAO nomealternativo = new NomeAlternativoDAO();
 			PreparedStatement ps;
 			ps = connection.prepareStatement(SELECTALL);			
 			ResultSet result =  ps.executeQuery();
 			while(result.next()) {
-				Autor autor = new Autor(result.getString("nome"),result.getString("biografia"),nomealternativo);
+				
+				Autor autor = new Autor(result.getString("nome"),result.getString("biografia"),nomealternativo.selectNomes(result.getInt("id")));
 				autor.setId(result.getInt("id"));
 				autores.add(autor);
 				
