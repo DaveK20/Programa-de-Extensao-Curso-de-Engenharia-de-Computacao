@@ -10,19 +10,19 @@ public class NomeAlternativoDAO {
     private Connection conexao;
 
     public NomeAlternativoDAO() {
-    	Connection connection = (new JDBCConnection()).getConnection();
+    	this.conexao = (new JDBCConnection()).getConnection();
     }
 
     public List<NomeAlternativo> listarNomesAlternativos() {
         List<NomeAlternativo> nomesAlternativos = new ArrayList<>();
 
         try {
-            String query = "SELECT * FROM nomes_alternativos";
+            String query = "SELECT * FROM nome_alternativo";
             Statement statement = conexao.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                NomeAlternativo nomeAlternativo = new NomeAlternativo(resultSet.getString("nome"),resultSet.getInt("autor_id"));
+                NomeAlternativo nomeAlternativo = new NomeAlternativo(resultSet.getString("nome_alternativo"),resultSet.getInt("autor_id"));
                 nomeAlternativo.setId(resultSet.getInt("id"));               
                 nomesAlternativos.add(nomeAlternativo);
             }
@@ -38,9 +38,9 @@ public class NomeAlternativoDAO {
 
     public void adicionarNomeAlternativo(NomeAlternativo nomeAlternativo) {
         try {
-            String query = "INSERT INTO nomes_alternativos (id, nome) VALUES (?, ?)";
+            String query = "INSERT INTO nome_alternativo (autor_id, nome_alternativo) VALUES (?, ?)";
             PreparedStatement preparedStatement = conexao.prepareStatement(query);
-            preparedStatement.setInt(1, nomeAlternativo.getId());
+            preparedStatement.setInt(1, nomeAlternativo.getAutor_id());
             preparedStatement.setString(2, nomeAlternativo.getNome());
             preparedStatement.executeUpdate();
             preparedStatement.close();
@@ -51,7 +51,7 @@ public class NomeAlternativoDAO {
 
     public void atualizarNomeAlternativo(NomeAlternativo nomeAlternativo) {
         try {
-            String query = "UPDATE nomes_alternativos SET nome = ? WHERE id = ?";
+            String query = "UPDATE nome_alternativo SET nome = ? WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(query);
             preparedStatement.setString(1, nomeAlternativo.getNome());
             preparedStatement.setInt(2, nomeAlternativo.getId());
@@ -64,7 +64,7 @@ public class NomeAlternativoDAO {
 
     public void removerNomeAlternativo(int id) {
         try {
-            String query = "DELETE FROM nomes_alternativos WHERE id = ?";
+            String query = "DELETE FROM nome_alternativo WHERE id = ?";
             PreparedStatement preparedStatement = conexao.prepareStatement(query);
             preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
@@ -77,13 +77,13 @@ public class NomeAlternativoDAO {
     public List<NomeAlternativo> selectNomes(int autor_id) {
     	 try {
     		 List<NomeAlternativo> nomealternativo = new ArrayList<>();
-             String query = "SELECT * FROM nomes_alternativos WHERE autor_id=?";
+             String query = "SELECT * FROM nome_alternativo WHERE autor_id = ?";
              PreparedStatement statement = conexao.prepareStatement(query);
              statement.setInt(1, autor_id);
-             ResultSet resultSet = statement.executeQuery(query);
+             ResultSet resultSet = statement.executeQuery();
 
              while (resultSet.next()) {
-                 NomeAlternativo nomeAlternativo = new NomeAlternativo(resultSet.getString("nome"),resultSet.getInt("autor_id"));
+                 NomeAlternativo nomeAlternativo = new NomeAlternativo(resultSet.getString("nome_alternativo"),resultSet.getInt("autor_id"));
                  nomeAlternativo.setId(resultSet.getInt("id"));               
                  nomealternativo.add(nomeAlternativo);
              }
