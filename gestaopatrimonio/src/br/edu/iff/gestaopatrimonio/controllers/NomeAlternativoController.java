@@ -26,4 +26,8 @@ public class NomeAlternativoController {
     public void removerNomeAlternativo(int id) {
         nomeAlternativoDAO.removerNomeAlternativo(id);
     }
+    
+    public List<NomeAlternativo> selectNomes(int id) {
+    	return nomeAlternativoDAO.selectNomes(id);
+    }
 }
