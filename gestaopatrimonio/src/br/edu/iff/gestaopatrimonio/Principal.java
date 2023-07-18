@@ -1,14 +1,17 @@
 package br.edu.iff.gestaopatrimonio;
 
-import br.edu.iff.gestaopatrimonio.daos.*;
-import br.edu.iff.gestaopatrimonio.models.*;
-
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import br.edu.iff.gestaopatrimonio.controllers.*;
+import br.edu.iff.gestaopatrimonio.controllers.AutorController;
+import br.edu.iff.gestaopatrimonio.controllers.PatrimonioController;
+import br.edu.iff.gestaopatrimonio.models.Autor;
+import br.edu.iff.gestaopatrimonio.models.ClassificacaoGenerica;
+import br.edu.iff.gestaopatrimonio.models.NomeAlternativo;
+import br.edu.iff.gestaopatrimonio.models.Patrimonio;
+import br.edu.iff.gestaopatrimonio.models.TipoPatrimonio;
+import br.edu.iff.gestaopatrimonio.models.UnidadeAdministrativa;
 
 public class Principal {
 
@@ -43,7 +46,7 @@ public class Principal {
 			System.out.println("Sua opcao foi, " + opcao);
 
 			if (opcao.equals("1")) {
-				
+
 				Patrimonio patrimonio = new Patrimonio();
 				patrimonio.setObservacoes("Patrimônio da comunidade de BJI");
 				patrimonio.setNumeroDeIdentificacao(123456);
@@ -67,14 +70,16 @@ public class Principal {
 				ClassificacaoGenerica classificacaoGenerica = new ClassificacaoGenerica();
 				classificacaoGenerica.setId(1);
 				patrimonio.setClassificacaoGenerica(classificacaoGenerica);
-				
+
 				PatrimonioController patrimonioController = new PatrimonioController();
-			 	patrimonio = patrimonioController.cadastrar(patrimonio);
-			 	System.out.println(patrimonio.getTitulo()+" : "+patrimonio.getObservacoes()+" : "+patrimonio.getLocalGuardado());
-			 	
-			 	List<Patrimonio> patrimonios = patrimonioController.listar();
-			 	for (Patrimonio patrimonio2 : patrimonios) {
-				 	System.out.println(patrimonio.getId()+" : "+patrimonio.getTitulo()+" : "+patrimonio.getObservacoes()+" : "+patrimonio.getLocalGuardado());
+				patrimonio = patrimonioController.cadastrar(patrimonio);
+				System.out.println(patrimonio.getTitulo() + " : " + patrimonio.getObservacoes() + " : "
+						+ patrimonio.getLocalGuardado());
+
+				List<Patrimonio> patrimonios = patrimonioController.listar();
+				for (Patrimonio patrimonio2 : patrimonios) {
+					System.out.println(patrimonio2.getId() + " : " + patrimonio2.getTitulo() + " : "
+							+ patrimonio2.getObservacoes() + " : " + patrimonio2.getLocalGuardado());
 				}
 			}
 			if (opcao.equals("2")) {
