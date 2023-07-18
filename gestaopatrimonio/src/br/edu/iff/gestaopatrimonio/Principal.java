@@ -5,23 +5,104 @@ import br.edu.iff.gestaopatrimonio.models.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import br.edu.iff.gestaopatrimonio.controllers.*;
 
-
 public class Principal {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static void main(String[] args) throws Exception {
 
-		//AutorController autorcontroller = new AutorController();
-		//List<NomeAlternativo> nomealternativo = new ArrayList<>();
-		//System.out.println(autorcontroller.insert(new Autor("Arlisson","HAHAHAHA",nomealternativo)));
-		PatrimonioController patrimonioController = new PatrimonioController();
-		
-		
-		
-		
+		Boolean continua = true;
+		while (continua) {
+			System.out.println("#### Sistema de Gerenciamento de Patrimônio #### \n");
+			System.out.println("1 Listar Patrimônios");
+			System.out.println("2 Listar Aquisições");
+			System.out.println("3 Listar Autores");
+			System.out.println("4 Listar Cidades");
+			System.out.println("5 Listar Classificações Genéricas");
+			System.out.println("6 Listar Estados");
+			System.out.println("7 Listar Formas de Aquisições");
+			System.out.println("8 Listar Imagens");
+			System.out.println("9 Listar Materiais");
+			System.out.println("10 Listar Materiais dos Patrimônios");
+			System.out.println("11 Listar Nomes Alternativos");
+			System.out.println("12 Listar Países");
+			System.out.println("13 Listar Palavras-Chaves");
+			System.out.println("14 Listar Procedências");
+			System.out.println("15 Listar Técnicas");
+			System.out.println("16 Listar Tipos de Imagens");
+			System.out.println("17 Listar Tipos de Patrimônios");
+			System.out.println("18 Listar Unidades Administrativas");
+			System.out.println("99 Sair");
+
+			@SuppressWarnings("resource")
+			Scanner scan = new Scanner(System.in);
+			String opcao = scan.next();
+			System.out.println("Sua opcao foi, " + opcao);
+
+			if (opcao.equals("1")) {
+				PatrimonioController patrimonioController = new PatrimonioController();
+				Patrimonio patrimonio = new Patrimonio();
+				patrimonioController.cadastrar(patrimonio);
+			}
+			if (opcao.equals("2")) {
+
+			}
+			if (opcao.equals("3")) {
+				AutorController autorcontroller = new AutorController();
+				List<NomeAlternativo> nomealternativo = new ArrayList<>();
+				System.out.println(autorcontroller.insert(new Autor("Arlisson", "HAHAHAHA", nomealternativo)));
+			}
+			if (opcao.equals("4")) {
+
+			}
+			if (opcao.equals("5")) {
+
+			}
+			if (opcao.equals("6")) {
+
+			}
+			if (opcao.equals("7")) {
+
+			}
+			if (opcao.equals("8")) {
+
+			}
+			if (opcao.equals("9")) {
+
+			}
+			if (opcao.equals("10")) {
+
+			}
+			if (opcao.equals("11")) {
+
+			}
+			if (opcao.equals("12")) {
+
+			}
+			if (opcao.equals("13")) {
+
+			}
+			if (opcao.equals("14")) {
+
+			}
+			if (opcao.equals("15")) {
+
+			}
+			if (opcao.equals("16")) {
+
+			}
+			if (opcao.equals("17")) {
+
+			}
+			if (opcao.equals("18")) {
+
+			}
+			if (opcao.equals("99")) {
+				System.out.println("Programa terminado.");
+				continua = false;
+			}
+		}
 	}
-
 }
