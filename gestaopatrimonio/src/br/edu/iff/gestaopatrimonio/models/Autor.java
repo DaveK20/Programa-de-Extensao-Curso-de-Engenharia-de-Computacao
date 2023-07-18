@@ -57,8 +57,12 @@ public class Autor {
 
 	@Override
 	public String toString() {
+		List<String> nomes = new ArrayList<>();
+		for(NomeAlternativo a: nomeAlternativo) {
+			nomes.add(a.getNome());
+		}
 		return "Autor [id= " + id + ", nome= " + nome + ", biografia= " + biografia + ", nomeAlternativo= "
-				+ nomeAlternativo + "]\n";
+				+ nomes + "]\n";
 	}
 
 }
