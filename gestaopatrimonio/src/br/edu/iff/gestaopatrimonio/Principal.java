@@ -3,6 +3,7 @@ package br.edu.iff.gestaopatrimonio;
 import br.edu.iff.gestaopatrimonio.daos.*;
 import br.edu.iff.gestaopatrimonio.models.*;
 
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -42,9 +43,39 @@ public class Principal {
 			System.out.println("Sua opcao foi, " + opcao);
 
 			if (opcao.equals("1")) {
-				PatrimonioController patrimonioController = new PatrimonioController();
+				
 				Patrimonio patrimonio = new Patrimonio();
-				patrimonioController.cadastrar(patrimonio);
+				patrimonio.setObservacoes("Patrimônio da comunidade de BJI");
+				patrimonio.setNumeroDeIdentificacao(123456);
+				patrimonio.setPesquisaMuseologica("TESTE");
+				patrimonio.setTema("TESTE");
+				patrimonio.setCatalogacao("Gr0001");
+				patrimonio.setTombo("00210");
+				patrimonio.setMovimento("TESTE");
+				patrimonio.setInventarioMuseologico("80.000.069");
+				patrimonio.setInventarioPatrimonial("0171");
+				patrimonio.setInformacaoData("TESTE");
+				patrimonio.setLocalGuardado("Exposição Permanente – salão oval, nicho 1");
+				patrimonio.setAssinatura("TESTE");
+				patrimonio.setTitulo("TESTE");
+				TipoPatrimonio tipoPatrimonio = new TipoPatrimonio();
+				tipoPatrimonio.setId(1);
+				patrimonio.setTipoPatrimonio(tipoPatrimonio);
+				UnidadeAdministrativa unidadeAdministrativa = new UnidadeAdministrativa();
+				unidadeAdministrativa.setId(1);
+				patrimonio.setUnidadeAdministrativa(unidadeAdministrativa);
+				ClassificacaoGenerica classificacaoGenerica = new ClassificacaoGenerica();
+				classificacaoGenerica.setId(1);
+				patrimonio.setClassificacaoGenerica(classificacaoGenerica);
+				
+				PatrimonioController patrimonioController = new PatrimonioController();
+			 	patrimonio = patrimonioController.cadastrar(patrimonio);
+			 	System.out.println(patrimonio.getTitulo()+" : "+patrimonio.getObservacoes()+" : "+patrimonio.getLocalGuardado());
+			 	
+			 	List<Patrimonio> patrimonios = patrimonioController.listar();
+			 	for (Patrimonio patrimonio2 : patrimonios) {
+				 	System.out.println(patrimonio.getId()+" : "+patrimonio.getTitulo()+" : "+patrimonio.getObservacoes()+" : "+patrimonio.getLocalGuardado());
+				}
 			}
 			if (opcao.equals("2")) {
 

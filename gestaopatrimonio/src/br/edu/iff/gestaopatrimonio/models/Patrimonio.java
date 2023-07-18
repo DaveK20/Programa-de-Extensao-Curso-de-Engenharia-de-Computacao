@@ -6,28 +6,52 @@ import java.util.List;
 public class Patrimonio {
 
 	private int id;
-    
+
+	private String titulo;
+
 	private String observacoes;
 
-    private List<PalavraChave> palavrasChave = new ArrayList<PalavraChave> ();
+	private int numeroDeIdentificacao;
 
-    private List<Material> materiais = new ArrayList<Material> ();
+	private String pesquisaMuseologica;
 
-    private List<Procedencia> procedencias = new ArrayList<Procedencia> ();
+	private String tema;
 
-    private List<Autor> autores = new ArrayList<Autor> ();
+	private String catalogacao;
 
-    private TipoPatrimonio tipoPatrimonio;
+	private String tombo;
 
-    private UnidadeAdministrativa unidadeAdministrativa;
+	private String movimento;
 
-    private List<Imagem> imagens = new ArrayList<Imagem> ();
+	private String inventarioMuseologico;
 
-    private List<Tecnica> tecnicas = new ArrayList<Tecnica> ();
+	private String inventarioPatrimonial;
 
-    private ClassificacaoGenerica classificacaoGenerica;
+	private String informacaoData;
 
-    private List<Aquisicao> aquisicoes = new ArrayList<Aquisicao> ();
+	private String localGuardado;
+
+	private String assinatura;
+
+	private List<PalavraChave> palavrasChave = new ArrayList<PalavraChave>();
+
+	private List<Material> materiais = new ArrayList<Material>();
+
+	private List<Procedencia> procedencias = new ArrayList<Procedencia>();
+
+	private List<Autor> autores = new ArrayList<Autor>();
+
+	private TipoPatrimonio tipoPatrimonio;
+
+	private UnidadeAdministrativa unidadeAdministrativa;
+
+	private List<Imagem> imagens = new ArrayList<Imagem>();
+
+	private List<Tecnica> tecnicas = new ArrayList<Tecnica>();
+
+	private ClassificacaoGenerica classificacaoGenerica;
+
+	private List<Aquisicao> aquisicoes = new ArrayList<Aquisicao>();
 
 	public int getId() {
 		return id;
@@ -37,12 +61,108 @@ public class Patrimonio {
 		this.id = id;
 	}
 
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+
 	public String getObservacoes() {
 		return observacoes;
 	}
 
 	public void setObservacoes(String observacoes) {
 		this.observacoes = observacoes;
+	}
+
+	public int getNumeroDeIdentificacao() {
+		return numeroDeIdentificacao;
+	}
+
+	public void setNumeroDeIdentificacao(int numeroDeIdentificacao) {
+		this.numeroDeIdentificacao = numeroDeIdentificacao;
+	}
+
+	public String getPesquisaMuseologica() {
+		return pesquisaMuseologica;
+	}
+
+	public void setPesquisaMuseologica(String pesquisaMuseologica) {
+		this.pesquisaMuseologica = pesquisaMuseologica;
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+
+	public String getCatalogacao() {
+		return catalogacao;
+	}
+
+	public void setCatalogacao(String catalogacao) {
+		this.catalogacao = catalogacao;
+	}
+
+	public String getTombo() {
+		return tombo;
+	}
+
+	public void setTombo(String tombo) {
+		this.tombo = tombo;
+	}
+
+	public String getMovimento() {
+		return movimento;
+	}
+
+	public void setMovimento(String movimento) {
+		this.movimento = movimento;
+	}
+
+	public String getInventarioMuseologico() {
+		return inventarioMuseologico;
+	}
+
+	public void setInventarioMuseologico(String inventarioMuseologico) {
+		this.inventarioMuseologico = inventarioMuseologico;
+	}
+
+	public String getInventarioPatrimonial() {
+		return inventarioPatrimonial;
+	}
+
+	public void setInventarioPatrimonial(String inventarioPatrimonial) {
+		this.inventarioPatrimonial = inventarioPatrimonial;
+	}
+
+	public String getInformacaoData() {
+		return informacaoData;
+	}
+
+	public void setInformacaoData(String informacaoData) {
+		this.informacaoData = informacaoData;
+	}
+
+	public String getLocalGuardado() {
+		return localGuardado;
+	}
+
+	public void setLocalGuardado(String localGuardado) {
+		this.localGuardado = localGuardado;
+	}
+
+	public String getAssinatura() {
+		return assinatura;
+	}
+
+	public void setAssinatura(String assinatura) {
+		this.assinatura = assinatura;
 	}
 
 	public List<PalavraChave> getPalavrasChave() {
@@ -125,5 +245,4 @@ public class Patrimonio {
 		this.aquisicoes = aquisicoes;
 	}
 
-    
 }

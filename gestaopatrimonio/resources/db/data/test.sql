@@ -1,11 +1,12 @@
 -- -----------------------------------------------------
 -- Referente ao Tipo de Acervo do manual de museus utilizado na pesquisa. 
+-- Dados básicos para isnerir um patrimônio.
+-- Autor: Halisson José Soares da Rocha
 -- -----------------------------------------------------
 
 INSERT INTO tipo_patrimonio ( nome_tipo_patrimonio) VALUES("Museológico");
 INSERT INTO tipo_patrimonio ( nome_tipo_patrimonio) VALUES("Bibliográfico");
 INSERT INTO tipo_patrimonio ( nome_tipo_patrimonio) VALUES("Peças Baixadas");
-
 
 INSERT INTO unidade_administrativa (sigla, nome) VALUES("MIR", " Museu do Primeiro Reinado");
 INSERT INTO unidade_administrativa (sigla, nome) VALUES("MT", "Museu dos Teatros");
