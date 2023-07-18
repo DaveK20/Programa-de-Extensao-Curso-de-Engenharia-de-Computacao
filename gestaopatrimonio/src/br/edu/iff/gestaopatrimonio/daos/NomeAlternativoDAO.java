@@ -22,9 +22,8 @@ public class NomeAlternativoDAO {
             ResultSet resultSet = statement.executeQuery(query);
 
             while (resultSet.next()) {
-                NomeAlternativo nomeAlternativo = new NomeAlternativo();
-                nomeAlternativo.setId(resultSet.getInt("id"));
-                nomeAlternativo.setNome(resultSet.getString("nome"));
+                NomeAlternativo nomeAlternativo = new NomeAlternativo(resultSet.getString("nome"),resultSet.getInt("autor_id"));
+                nomeAlternativo.setId(resultSet.getInt("id"));               
                 nomesAlternativos.add(nomeAlternativo);
             }
 
@@ -73,5 +72,28 @@ public class NomeAlternativoDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    
+    public List<NomeAlternativo> selectNomes(int autor_id) {
+    	 try {
+    		 List<NomeAlternativo> nomealternativo = new ArrayList<>();
+             String query = "SELECT * FROM nomes_alternativos WHERE autor_id=?";
+             PreparedStatement statement = conexao.prepareStatement(query);
+             statement.setInt(1, autor_id);
+             ResultSet resultSet = statement.executeQuery(query);
+
+             while (resultSet.next()) {
+                 NomeAlternativo nomeAlternativo = new NomeAlternativo(resultSet.getString("nome"),resultSet.getInt("autor_id"));
+                 nomeAlternativo.setId(resultSet.getInt("id"));               
+                 nomealternativo.add(nomeAlternativo);
+             }
+             return nomealternativo;             
+             
+         } catch (SQLException e) {
+             e.printStackTrace();
+            
+         }
+    	 return null;
+         
     }
 }
