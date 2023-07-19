@@ -19,6 +19,9 @@ INSERT INTO unidade_administrativa (sigla, nome) VALUES("CEC", "Casa Euclides da
 
 INSERT INTO classificacao_generica (nome, descricao) VALUES("Imagem", "Artes Visuais Cinematográficas");
 
+INSERT INTO tecnica (nome) VALUES ("Pintura a oleo");
+INSERT INTO tecnica (nome) VALUES ("Cubismo");
+
 INSERT INTO patrimonio (numero_de_identificacao, observacoes, catalogacao, tombo, inventario_museologico, inventario_patrimonial, local_guardado, tipo_patrimonio_id, unidade_administrativa_id, classificacao_generica_id ) VALUES ("123456", "Muito bom estado", "Gr0001", "00210", "80.000.069", "0171", "Exposição Permanente – salão oval, nicho 1", 1, 2, 1);
 
 

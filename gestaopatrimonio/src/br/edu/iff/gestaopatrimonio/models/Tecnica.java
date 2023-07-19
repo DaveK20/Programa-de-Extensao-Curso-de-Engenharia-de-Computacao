@@ -4,11 +4,13 @@ public class Tecnica {
 	private int id;
 
 	private String nome;
-	
+
+	private Patrimonio patrimonio;
+
 	public Tecnica() {
-		
+
 	}
-	
+
 	public Tecnica(int id, String nome) {
 		setId(id);
 		setNome(nome);
@@ -29,5 +31,13 @@ public class Tecnica {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
+	public Patrimonio getPatrimonio() {
+		return patrimonio;
+	}
+
+	public void setPatrimonio(Patrimonio patrimonio) {
+		this.patrimonio = patrimonio;
+	}
+
 }

@@ -13,6 +13,7 @@ import br.edu.iff.gestaopatrimonio.models.Autor;
 import br.edu.iff.gestaopatrimonio.models.ClassificacaoGenerica;
 import br.edu.iff.gestaopatrimonio.models.NomeAlternativo;
 import br.edu.iff.gestaopatrimonio.models.Patrimonio;
+import br.edu.iff.gestaopatrimonio.models.Tecnica;
 import br.edu.iff.gestaopatrimonio.models.TipoPatrimonio;
 import br.edu.iff.gestaopatrimonio.models.UnidadeAdministrativa;
 
@@ -73,6 +74,14 @@ public class Principal {
 				patrimonio.setTipoPatrimonio(tipoPatrimonio);
 				UnidadeAdministrativa unidadeAdministrativa = new UnidadeAdministrativa();
 				unidadeAdministrativa.setId(1);
+				List<Tecnica> tecnicas = new ArrayList<Tecnica>();
+				Tecnica tecnica1 = new Tecnica();
+				tecnica1.setId(1);
+				tecnicas.add(tecnica1);
+				Tecnica tecnica2 = new Tecnica();
+				tecnica2.setId(2);
+				tecnicas.add(tecnica2);
+				patrimonio.setTecnicas(tecnicas);
 				patrimonio.setUnidadeAdministrativa(unidadeAdministrativa);
 				ClassificacaoGenerica classificacaoGenerica = new ClassificacaoGenerica();
 				classificacaoGenerica.setId(1);
@@ -82,6 +91,11 @@ public class Principal {
 				patrimonio = patrimonioController.cadastrar(patrimonio);
 				System.out.println(patrimonio.getTitulo() + " : " + patrimonio.getObservacoes() + " : "
 						+ patrimonio.getLocalGuardado());
+				List<Tecnica> tecnicas2; //= new ArrayList<Tecnica>();
+				tecnicas2 = patrimonio.getTecnicas();
+				for (Tecnica tecnica3 : tecnicas2) {
+					System.out.println(tecnica3.getNome());
+				}
 
 				/**
 				 * @author hj_ro

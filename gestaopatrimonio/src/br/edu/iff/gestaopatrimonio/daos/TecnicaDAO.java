@@ -12,16 +12,13 @@ import br.edu.iff.gestaopatrimonio.models.Tecnica;
 import br.edu.iff.gestaopatrimonio.models.UnidadeAdministrativa;
 import br.edu.iff.gestaopatrimonio.utils.JDBCConnection;
 
-
-
 public class TecnicaDAO {
-	
+
 	private Connection connection;
-	
+
 	public TecnicaDAO() {
 		connection = (new JDBCConnection()).getConnection();
 	}
-	
 
 //	public Tecnica cadastrarTecnica(Tecnica tecnica) throws Exception {
 //		try {
@@ -35,11 +32,12 @@ public class TecnicaDAO {
 //	}
 	public Tecnica cadastrarTecnica(String nome) {
 		try {
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO tecnica (nome) VALUES (?)",Statement.RETURN_GENERATED_KEYS );
+			PreparedStatement ps = connection.prepareStatement("INSERT INTO tecnica (nome) VALUES (?)",
+					Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, nome);
 			ps.execute();
 			ResultSet rs = ps.getGeneratedKeys();
-			if(rs.next()) {
+			if (rs.next()) {
 				int id = rs.getInt(1);
 				Tecnica tecnica = new Tecnica(id, nome);
 				System.out.println("Registro de tecnica finalizada");
@@ -50,10 +48,10 @@ public class TecnicaDAO {
 		}
 		return null;
 	}
-	
-    public Tecnica atualizarTecnica(int id, String novoNome) {
-    	PreparedStatement ps;
-    	try {
+
+	public Tecnica atualizarTecnica(int id, String novoNome) {
+		PreparedStatement ps;
+		try {
 			ps = connection.prepareStatement("UPDATE tecnica SET nome = ? WHERE id = ?");
 			ps.setString(1, novoNome);
 			ps.setInt(2, id);
@@ -63,12 +61,12 @@ public class TecnicaDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-    	return null;
-    }
-	
-    public void removerTecnica(int id) {
-    	PreparedStatement ps;
-    	try {
+		return null;
+	}
+
+	public void removerTecnica(int id) {
+		PreparedStatement ps;
+		try {
 			ps = connection.prepareStatement("DELETE FROM tecnica WHERE id = ?");
 			ps.setInt(1, id);
 			ps.executeUpdate();
@@ -76,28 +74,55 @@ public class TecnicaDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-    }
-	
-	public List<Tecnica> listarTecnicas(){
+	}
+
+	public List<Tecnica> listarTecnicas() {
 		try {
 			PreparedStatement ps = connection.prepareStatement("SELECT * FROM tecnica");
 			ResultSet result = ps.executeQuery();
-			if(!result.next()) {
+			if (!result.next()) {
 				throw new Exception("Nenhum tecnica cadastrada.");
 			}
 			List<Tecnica> tecnicas = new ArrayList<Tecnica>();
-            do {
-                Tecnica tecnica = new Tecnica();
-                //tecnica.nome = result.getString(2);
-                tecnicas.add(tecnica);
-            }while (result.next());
+			do {
+				Tecnica tecnica = new Tecnica();
+				// tecnica.nome = result.getString(2);
+				tecnicas.add(tecnica);
+			} while (result.next());
 			return tecnicas;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
 		}
 	}
-     	
 
+	/**
+	 * @author hj_ro
+	 * @author Yan
+	 */
+	public boolean vincularTecnicasAUmPatrimonio(List<Tecnica> tecnicas, int patrimonioId) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO patrimonio_has_tecnica (patrimonio_id, tecnica_id) VALUES (?,?)");
+		for (Tecnica tecnica : tecnicas) {
+			ps.setInt(1, patrimonioId);
+			ps.setInt(2, tecnica.getId());
+			ps.execute();
+		}
+		return true;
+	}
+	
+	public List<Tecnica> listarPorPatrimonioId(int patrimonioId) throws SQLException{
+		PreparedStatement ps = connection.prepareStatement("SELECT t.id, t.nome FROM patrimonio_has_tecnica as pt, tecnica as t"
+				+ " WHERE pt.tecnica_id = t.id and pt.patrimonio_id =?");
+		ps.setInt(1, patrimonioId);
+		ResultSet rs = ps.executeQuery();
+		List<Tecnica> tecnicas = new ArrayList<Tecnica>();
+		while(rs.next()) {
+			Tecnica tecnica = new Tecnica();
+			tecnica.setId(rs.getInt(1));
+			tecnica.setNome(rs.getString(2));
+			tecnicas.add(tecnica);
+		}
+		return tecnicas;
+	}
 
 }

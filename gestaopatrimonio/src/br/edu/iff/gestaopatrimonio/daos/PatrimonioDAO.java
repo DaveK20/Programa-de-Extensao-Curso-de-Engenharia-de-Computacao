@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class PatrimonioDAO {
 							+ "pesquisa_museologica, tema, catalogacao, tombo, movimento, inventario_museologico, inventario_patrimonial,"
 							+ "informacao_data, local_guardado, assinatura, titulo, tipo_patrimonio_id, unidade_administrativa_id, "
 							+ "classificacao_generica_id ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? );\r\n"
-							+ "");
+							+ "", Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, patrimonio.getObservacoes());
 			ps.setInt(2, patrimonio.getNumeroDeIdentificacao());
 			ps.setString(3, patrimonio.getPesquisaMuseologica());
@@ -50,6 +51,10 @@ public class PatrimonioDAO {
 			ps.setInt(15, patrimonio.getUnidadeAdministrativa().getId());
 			ps.setInt(16, patrimonio.getClassificacaoGenerica().getId());
 			ps.execute();
+			ResultSet id = ps.getGeneratedKeys();
+			id.next();
+			patrimonio.setId(id.getInt(1));
+			return patrimonio;
 		} catch (Exception e) {
 
 		}
@@ -128,7 +133,7 @@ public class PatrimonioDAO {
 			return true;
 
 		} catch (Exception e) {
-
+			e.printStackTrace();
 		}
 		return false;
 	}
