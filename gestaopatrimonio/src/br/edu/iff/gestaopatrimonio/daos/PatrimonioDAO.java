@@ -195,4 +195,18 @@ public class PatrimonioDAO {
 
 	}
 
+	public boolean desvincularTecnicaDeUmPatrimonio(int patrimonio_id, int tecnica_id) {
+		try {
+			PreparedStatement ps = connection.prepareStatement(
+					"DELETE FROM patrimonio_has_tecnica" + " WHERE patrimonio_id = ? AND tecnica_id = ?");
+			ps.setInt(1, patrimonio_id);
+			ps.setInt(2, tecnica_id);
+			ps.executeUpdate();
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

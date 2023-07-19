@@ -15,6 +15,10 @@ public class PatrimonioController {
 	PatrimonioDAO patrimonioDAO = new PatrimonioDAO();
 	TecnicaDAO tecnicaDAO = new TecnicaDAO();
 	
+	/**
+	 * @author hj_ro
+	 * @author Yan
+	 */
 	public Patrimonio cadastrar(Patrimonio patrimonio) throws Exception {
 		patrimonio = patrimonioDAO.cadastrar(patrimonio);
 		vincularTecnicasAUmPatrimonio(patrimonio.getTecnicas(), patrimonio.getId());	
@@ -47,6 +51,10 @@ public class PatrimonioController {
 	private boolean vincularTecnicasAUmPatrimonio(List<Tecnica> tecnicas, int patrimonioId) throws SQLException {
 		tecnicaDAO.vincularTecnicasAUmPatrimonio(tecnicas, patrimonioId);
 		return true;
+	}
+	
+	public boolean desvincularTecnicaDeUmPatrimonio(int patrimonio_id, int tecnica_id) {
+		return patrimonioDAO.desvincularTecnicaDeUmPatrimonio( patrimonio_id, tecnica_id);
 	}
 	
 }

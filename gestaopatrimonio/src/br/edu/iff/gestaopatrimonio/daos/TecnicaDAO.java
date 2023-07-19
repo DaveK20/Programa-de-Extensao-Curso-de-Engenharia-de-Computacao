@@ -111,6 +111,10 @@ public class TecnicaDAO {
 	}
 	
 	public List<Tecnica> listarPorPatrimonioId(int patrimonioId) throws SQLException{
+		/**
+		 * @author hj_ro
+		 * @author Yan
+		 */
 		PreparedStatement ps = connection.prepareStatement("SELECT t.id, t.nome FROM patrimonio_has_tecnica as pt, tecnica as t"
 				+ " WHERE pt.tecnica_id = t.id and pt.patrimonio_id =?");
 		ps.setInt(1, patrimonioId);

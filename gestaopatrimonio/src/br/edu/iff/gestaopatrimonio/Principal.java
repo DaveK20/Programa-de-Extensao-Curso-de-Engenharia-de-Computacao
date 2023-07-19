@@ -99,6 +99,7 @@ public class Principal {
 
 				/**
 				 * @author hj_ro
+				 * @author Yan
 				 * Teste de listagem de patrimônio.
 				 */
 				List<Patrimonio> patrimonios = patrimonioController.listar();
@@ -115,6 +116,13 @@ public class Principal {
 				for (Patrimonio patrimonio2 : patrimonios2) {
 					System.out.println(patrimonio2.getId()+ " : "+patrimonio2.getTitulo());
 				}
+				
+				/**
+				 * @author hj_ro
+				 * @author Yan
+				 * Teste de listagem de patrimônio.
+				 */
+				//patrimonioController.desvincularTecnicaDeUmPatrimonio(30, 1);
 			}
 			if (opcao.equals("2")) {
 
