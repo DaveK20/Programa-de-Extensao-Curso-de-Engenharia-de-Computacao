@@ -15,7 +15,7 @@ public class JDBCConnection {
 
 			Dotenv dotenv = Dotenv.configure().directory("./src/").filename(".env").load();
 			return DriverManager.getConnection("jdbc:mysql://localhost:" + dotenv.get("PORT") + "/" + dotenv.get("DB")
-					+ "?user=" + dotenv.get("USER") + dotenv.get("PASSWORD"));
+					+ "?user=" + dotenv.get("USERR") + dotenv.get("PASSWORD"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 			// TODO: handle exception

@@ -23,6 +23,7 @@ public class Principal {
 			System.out.println("2 Listar patrim�nios.");
 			System.out.println("5 Cadastrar Tecnica.");
 			System.out.println("6 Listar tecnicas.");
+			System.out.println("7 Atualizar tecnicas");
 			System.out.println("9 Sair.");             
 	
 		    Scanner scan = new Scanner(System.in);
