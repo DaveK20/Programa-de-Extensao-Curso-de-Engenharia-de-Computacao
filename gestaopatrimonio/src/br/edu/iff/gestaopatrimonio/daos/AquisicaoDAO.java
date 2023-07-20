@@ -17,7 +17,6 @@ public class AquisicaoDAO {
     	connection = temp.getConnection();
     }
 
-    // Create - Inserir uma nova aquisição
     public boolean insertAquisicao(Aquisicao aquisicao, int patrimonio_id) {
         try {
             PreparedStatement statement = connection.prepareStatement(
@@ -35,7 +34,6 @@ public class AquisicaoDAO {
         }
     }
 
-    // Read - Obter todas as aquisições
     public List<Aquisicao> getAllAquisicoes() {
         List<Aquisicao> aquisicoes = new ArrayList<>();
 
@@ -63,7 +61,6 @@ public class AquisicaoDAO {
         return aquisicoes;
     }
 
-    // Update - Atualizar uma aquisição existente
     public boolean updateAquisicao(Aquisicao aquisicao) {
         try {
             PreparedStatement statement = connection.prepareStatement(
@@ -81,7 +78,6 @@ public class AquisicaoDAO {
         }
     }
 
-    // Delete - Excluir uma aquisição
     public boolean deleteAquisicao(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement(
