@@ -1,0 +1,28 @@
+package br.edu.iff.gestaopatrimonio.controllers;
+import br.edu.iff.gestaopatrimonio.daos.PalavraChaveDAO;
+import br.edu.iff.gestaopatrimonio.models.PalavraChave;
+
+public class PalavraChaveController {
+	        PalavraChaveDAO palavraDAO = new PalavraChaveDAO();
+
+	   public PalavraChave cadastrarPalavraChave(int id, String palavra, int patrimonio_id) {
+	        if (palavra.length() <= 45) {
+	        	
+	            return palavraDAO.cadastrarPalavraChave(id, palavra, patrimonio_id);
+	        } else {
+	            return null;
+	        }
+	    }
+
+	    public PalavraChave atualizarPalavraChave(int id, String palavra, int patrimonio_id) {
+	        if (palavra.length() <= 45) {
+	        	PalavraChave palavra_chave = palavraDAO.atualizarPalavraChave(id, palavra, patrimonio_id);
+	            return palavra_chave;
+	        } 
+	            return null;
+	    }
+
+	    public void removerPalavraChave(int id, String palavra, int patrimonio_id) {
+	        palavraDAO.removerPalavraChave(id);
+	    }
+}
