@@ -14,6 +14,7 @@ import java.util.List;
 import br.edu.iff.gestaopatrimonio.models.Aquisicao;
 import br.edu.iff.gestaopatrimonio.models.ClassificacaoGenerica;
 import br.edu.iff.gestaopatrimonio.models.Material;
+import br.edu.iff.gestaopatrimonio.models.PalavraChave;
 import br.edu.iff.gestaopatrimonio.models.Patrimonio;
 import br.edu.iff.gestaopatrimonio.models.Procedencia;
 import br.edu.iff.gestaopatrimonio.models.Tecnica;
@@ -297,6 +298,28 @@ public class PatrimonioDAO {
 	 */
 	public boolean excluirAquisicaoAUmPatrimonio(int id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement("DELETE FROM aquisicao WHERE id = ?");
+		ps.setInt(1, id);
+		ps.execute();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 */
+	public boolean inserirPalavraChaveAUmPatrimonio(PalavraChave palavraChave, int patrimonio_id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO palavra_chave (palavra_chave_nome"
+				+ "patrimonio_id) VALUES (?,?)");
+		ps.setDate(1, java.sql.Date.valueOf( palavraChave.getPalavra()));
+		ps.setInt(2, patrimonio_id);
+		ps.execute();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 */
+	public boolean excluirPalavraChaveAUmPatrimonio(int id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("DELETE FROM palavra_chave WHERE id = ?");
 		ps.setInt(1, id);
 		ps.execute();
 		return true;
