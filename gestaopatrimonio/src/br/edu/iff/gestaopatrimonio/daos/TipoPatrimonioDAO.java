@@ -41,7 +41,7 @@ public class TipoPatrimonioDAO {
     public TipoPatrimonio atualizarTipoPatrimonio(int id, String novoNome_tipo_patrimonio) {
     	PreparedStatement ps;
     	try {
-			ps = connection.prepareStatement("UPDATE tipo_patrimonio_generica SET nome_tipo_patrimonio = ? WHERE id = ?");
+			ps = connection.prepareStatement("UPDATE tipo_patrimonio SET nome_tipo_patrimonio = ? WHERE id = ?");
 			ps.setString(1, novoNome_tipo_patrimonio);
 			ps.setInt(2, id);
 			ps.executeUpdate();
@@ -53,31 +53,6 @@ public class TipoPatrimonioDAO {
 		}
     	return null;
     }
-    
-    public TipoPatrimonio atualizarNome_tipo_patrimonioTipoPatrimonio(int id,String novoNome_tipo_patrimonio) {
-    	PreparedStatement ps;
-    	try {
-			ps = connection.prepareStatement("UPDATE tipo_patrimonio SET nome_tipo_patrimonio = ? WHERE id = ?");
-			ps.setString(1, novoNome_tipo_patrimonio);
-			ps.setInt(2, id);
-			ps.executeUpdate();
-			
-			PreparedStatement consulta;
-			consulta = connection.prepareStatement("SELECT * FROM tipo_patrimonio WHERE id = ?");
-			consulta.setInt(1, id);
-			ResultSet rs = consulta.executeQuery();
-			if(rs.next()) {
-				int idNovo = rs.getInt("id");
-				String nome_tipo_patrimonioNovo = rs.getString("nome_tipo_patrimonio");
-				TipoPatrimonio tipo_patrimonio = new TipoPatrimonio(idNovo, nome_tipo_patrimonioNovo);
-				return tipo_patrimonio;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	return null;
-    }
-    
     
     public void removerTipoPatrimonio(int id) {
     	PreparedStatement ps;
