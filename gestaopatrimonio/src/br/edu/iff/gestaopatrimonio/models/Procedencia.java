@@ -1,11 +1,11 @@
 package br.edu.iff.gestaopatrimonio.models;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Procedencia {
 	private int id;
 
-	private Date data; //usar o formato Datetime, o BD não ira aceitar insert de string no campo data
+	private LocalDate data; // usar o formato Datetime, o BD não ira aceitar insert de string no campo data
 
 	private Pais pais;
 
@@ -13,8 +13,7 @@ public class Procedencia {
 
 	private Cidade cidade;
 
-	
-	public Procedencia(int id, Date data, Pais pais, Estado estado, Cidade cidade) {
+	public Procedencia(int id, LocalDate data, Pais pais, Estado estado, Cidade cidade) {
 		this.id = id;
 		this.data = data;
 		this.pais = pais;
@@ -30,11 +29,11 @@ public class Procedencia {
 		this.id = id;
 	}
 
-	public Date getData() {
+	public LocalDate getData() {
 		return data;
 	}
 
-	public void setData(Date data) {
+	public void setData(LocalDate data) {
 		this.data = data;
 	}
 

@@ -7,6 +7,13 @@ public class Estado {
 
 	private String nome;
 
+	public Estado(int id, String sigla, String nome) {
+		super();
+		this.id = id;
+		this.sigla = sigla;
+		this.nome = nome;
+	}
+
 	public int getId() {
 		return id;
 	}
