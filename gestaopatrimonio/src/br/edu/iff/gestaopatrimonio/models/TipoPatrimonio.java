@@ -1,9 +1,13 @@
 package br.edu.iff.gestaopatrimonio.models;
 
 public class TipoPatrimonio {
-
 	private int id;
 	private String nome_tipo_patrimonio;
+	
+	public TipoPatrimonio (int id, String nome_tipo_patrimonio) {
+    	setId(id);
+    	setNome_tipo_patrimonio(nome_tipo_patrimonio);
+    }
 
 	public int getId() {
 		return id;
