@@ -1,12 +1,12 @@
 # Programa-de-Extensao-Curso-de-Engenharia-de-Computacao
 ## Equipe
 
-- **Gabi** - Palavra-chave ✅
-- **Aline** - Procedência
+- **Gabi Vicente da Silva Marcelino** - Palavra-chave ✅
+- **Aline Vilela Guarisi** - Procedência
 - **Lucas Picanço Figueiredo** - Material ✅
 - **Yan Nascimento Balbi** - Técnica, Unidade Administrativa e Classificação Genérica ✅
 - **Rafael da Silva Rodrigues** - Tipo de patrimônio
-- **Edivan** - Tipo de imagem ✅
+- **Edivan Azevedo de Paula** - Tipo de imagem ✅
 - **Ayrton** - Formas de aquisição e Aquisição ✅
 - **Árlisson** - Autor ✅
 - **João Pedro Silveira da Silva** - Nome alternativo✅
