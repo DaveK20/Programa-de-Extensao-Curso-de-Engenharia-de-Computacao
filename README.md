@@ -5,7 +5,7 @@
 - **Aline Vilela Guarisi** - Procedência ✅
 - **Lucas Picanço Figueiredo** - Material ✅
 - **Yan Nascimento Balbi** - Técnica, Unidade Administrativa e Classificação Genérica ✅
-- **Rafael da Silva Rodrigues** - Tipo de patrimônio
+- **Rafael da Silva Rodrigues** - Tipo de patrimônio ✅
 - **Edivan Azevedo de Paula** - Tipo de imagem ✅
 - **Ayrton** - Formas de aquisição e Aquisição ✅
 - **Árlisson** - Autor ✅
