@@ -29,7 +29,6 @@ public class FormaAquisicaoDAO {
         }
     }
 
-    // Read - Obter todas as formas de aquisição
     public List<FormaAquisicao> getAllFormasAquisicao() {
         List<FormaAquisicao> formasAquisicao = new ArrayList<>();
 
