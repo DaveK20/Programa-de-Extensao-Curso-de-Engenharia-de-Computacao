@@ -6,8 +6,10 @@ import java.sql.SQLException;
 import java.util.List;
 
 import br.edu.iff.gestaopatrimonio.daos.PatrimonioDAO;
+import br.edu.iff.gestaopatrimonio.daos.ProcedenciaDAO;
 import br.edu.iff.gestaopatrimonio.daos.TecnicaDAO;
 import br.edu.iff.gestaopatrimonio.models.Patrimonio;
+import br.edu.iff.gestaopatrimonio.models.Procedencia;
 import br.edu.iff.gestaopatrimonio.models.Tecnica;
 
 public class PatrimonioController {
@@ -57,4 +59,7 @@ public class PatrimonioController {
 		return patrimonioDAO.desvincularTecnicaDeUmPatrimonio( patrimonio_id, tecnica_id);
 	}
 	
+	public boolean inserirProcedenciaAUmPatrimonio(Procedencia procedencia, int patrimonio_id) throws SQLException {
+		return patrimonioDAO.inserirProcedenciaAUmPatrimonio(procedencia, patrimonio_id);
+	}
 }
