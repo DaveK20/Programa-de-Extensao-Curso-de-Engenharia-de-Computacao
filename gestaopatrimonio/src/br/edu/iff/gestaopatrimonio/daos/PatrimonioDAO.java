@@ -14,6 +14,7 @@ import java.util.List;
 import br.edu.iff.gestaopatrimonio.models.Aquisicao;
 import br.edu.iff.gestaopatrimonio.models.Autor;
 import br.edu.iff.gestaopatrimonio.models.ClassificacaoGenerica;
+import br.edu.iff.gestaopatrimonio.models.Imagem;
 import br.edu.iff.gestaopatrimonio.models.Material;
 import br.edu.iff.gestaopatrimonio.models.PalavraChave;
 import br.edu.iff.gestaopatrimonio.models.Patrimonio;
@@ -343,6 +344,31 @@ public class PatrimonioDAO {
 	 */
 	public boolean desvincularAutorAUmPatrimonio(int id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement("DELETE FROM patrimonio_has_autor WHERE id = ?");
+		ps.setInt(1, id);
+		ps.execute();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 */
+	public boolean inserirImagemAUmPatrimonio(Imagem imagem, int patrimonio_id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO imagem (nome, data, arquivo, tipo_imagem, "
+				+ "patrimonio_id) VALUES (?,?,?,?,?)");
+		ps.setString(1, imagem.getNome());
+		ps.setDate(2, java.sql.Date.valueOf( imagem.getData()));
+		ps.setString(3, imagem.getArquivo());
+		ps.setInt(4, imagem.getTipoImagem().getId());
+		ps.setInt(5, patrimonio_id);
+		ps.execute();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 */
+	public boolean excluirImagemAUmPatrimonio(int id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("DELETE FROM imagem WHERE id = ?");
 		ps.setInt(1, id);
 		ps.execute();
 		return true;
