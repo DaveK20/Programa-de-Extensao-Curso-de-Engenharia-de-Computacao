@@ -10,7 +10,7 @@
 - **Ayrton** - Formas de aquisição e Aquisição ✅
 - **Árlisson** - Autor ✅
 - **João Pedro Silveira da Silva** - Nome alternativo✅
-- **Davi** - Imagem
+- **Davi Francisco Rodrigues - Imagem ✅
 - **Halisson José Soares da Rocha** - Patrimônio ✅
 
 ## Exemplo de SQL insertion
