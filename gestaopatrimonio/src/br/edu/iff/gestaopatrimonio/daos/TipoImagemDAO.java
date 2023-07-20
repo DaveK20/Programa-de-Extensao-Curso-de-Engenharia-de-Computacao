@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.edu.iff.gestaopatrimonio.models.FormaAquisicao;
 import br.edu.iff.gestaopatrimonio.models.TipoImagem;
 import br.edu.iff.gestaopatrimonio.utils.JDBCConnection;
 
@@ -27,7 +28,8 @@ public class TipoImagemDAO {
 			ResultSet rs = ps.getGeneratedKeys();
 			if (rs.next()) {
 				int id = rs.getInt(1);
-				TipoImagem imagem = new TipoImagem(id, largura, altura, descricao);
+				TipoImagem imagem = new TipoImagem(largura, altura, descricao);
+				imagem.setId(id);
 				System.out.println("Registro de tipo de imagem finalizada");
 				return imagem;
 			}
@@ -37,6 +39,31 @@ public class TipoImagemDAO {
 		}
 		return null;
 	}
+	
+	public TipoImagem pegarTipoImagemId(int id) {
+        TipoImagem tipoImagem = null;
+
+        try {
+            PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * FROM tipo_imagem WHERE id = ?");
+            statement.setInt(1, id);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int largura = resultSet.getInt("largura");
+                int altura = resultSet.getInt("altura");
+                String descricao = resultSet.getString("descricao");
+                
+                tipoImagem = new TipoImagem(largura, altura, descricao);
+                tipoImagem.setId(id);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return tipoImagem;
+    }
 
 	public TipoImagem atualizarTipoImagem(int id, int novaLargura, int novaAltura, String novaDescricao) {
 		PreparedStatement ps;
@@ -48,7 +75,8 @@ public class TipoImagemDAO {
 			ps.setString(3, novaDescricao);
 			ps.setInt(4, id);
 			ps.executeUpdate();
-			TipoImagem imagem = new TipoImagem(id, novaLargura, novaAltura, novaDescricao);
+			TipoImagem imagem = new TipoImagem(novaLargura, novaAltura, novaDescricao);
+			imagem.setId(id);
 			return imagem;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -72,7 +100,8 @@ public class TipoImagemDAO {
 				int larguraNova = rs.getInt("largura");
 				int alturaNova = rs.getInt("altura");
 				String descricaoNova = rs.getString("descricao");
-				TipoImagem imagem = new TipoImagem(idNovo, larguraNova, alturaNova, descricaoNova);
+				TipoImagem imagem = new TipoImagem(larguraNova, alturaNova, descricaoNova);
+				imagem.setId(idNovo);
 				return imagem;
 			}
 
@@ -98,7 +127,8 @@ public class TipoImagemDAO {
 				int larguraNova = rs.getInt("largura");
 				int alturaNova = rs.getInt("altura");
 				String descricaoNova = rs.getString("descricao");
-				TipoImagem imagem = new TipoImagem(idNovo, larguraNova, alturaNova, descricaoNova);
+				TipoImagem imagem = new TipoImagem(larguraNova, alturaNova, descricaoNova);
+				imagem.setId(idNovo);
 				return imagem;
 			}
 
@@ -124,7 +154,8 @@ public class TipoImagemDAO {
 				int larguraNova = rs.getInt("largura");
 				int alturaNova = rs.getInt("altura");
 				String descricaoNova = rs.getString("descricao");
-				TipoImagem imagem = new TipoImagem(idNovo, larguraNova, alturaNova, descricaoNova);
+				TipoImagem imagem = new TipoImagem(larguraNova, alturaNova, descricaoNova);
+				imagem.setId(idNovo);
 				return imagem;
 			}
 
