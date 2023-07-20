@@ -11,6 +11,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.edu.iff.gestaopatrimonio.models.Aquisicao;
 import br.edu.iff.gestaopatrimonio.models.ClassificacaoGenerica;
 import br.edu.iff.gestaopatrimonio.models.Material;
 import br.edu.iff.gestaopatrimonio.models.Patrimonio;
@@ -252,6 +253,7 @@ public class PatrimonioDAO {
 		ps.execute();
 		return true;
 	}
+	
 	/**
 	 * @author hj_ro
 	 */
@@ -274,6 +276,29 @@ public class PatrimonioDAO {
 		ps.setInt(1, patrimonio_id_patrimonio);
 		ps.setInt(2, material_id_material);
 		ps.executeUpdate();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 */
+	public boolean inserirAquisicaoAUmPatrimonio(Aquisicao aquisicao, int patrimonio_id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO aquisicao (data, patrimonio_id, "
+				+ "forma_aquisicao_id ) VALUES (?,?,?)");
+		ps.setDate(1, java.sql.Date.valueOf( aquisicao.getData()));
+		ps.setInt(2, patrimonio_id);
+		ps.setInt(3, aquisicao.getFormaAquisicao().getId());
+		ps.execute();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 */
+	public boolean excluirAquisicaoAUmPatrimonio(int id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("DELETE FROM aquisicao WHERE id = ?");
+		ps.setInt(1, id);
+		ps.execute();
 		return true;
 	}
 }
