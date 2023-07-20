@@ -3,14 +3,14 @@
 
 - **Gabi** - Palavra-chave
 - **Aline** - Procedência
-- **Lucas** - Material
+- **Lucas Picanço Figueiredo** - Material ✅
 - **Yan Nascimento Balbi** - Técnica, Unidade Administrativa e Classificação Genérica ✅
-- **Rafael** - Tipo de patrimônio
+- **Rafael da Silva Rodrigues** - Tipo de patrimônio
 - **Edivan** - Tipo de imagem ✅
 - **Ayrton** - Formas de aquisição e Aquisição ✅
 - **Árlisson** - Autor ✅
 - **João** - Nome alternativo
-- **Davi** - Material
+- **Davi** - Imagem
 - **Halisson José Soares da Rocha** - Patrimônio ✅
 
 ## Exemplo de SQL insertion
