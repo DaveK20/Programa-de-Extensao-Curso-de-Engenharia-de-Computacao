@@ -1,7 +1,7 @@
 # Programa-de-Extensao-Curso-de-Engenharia-de-Computacao
 ## Equipe
 
-- **Gabi** - Palavra-chave
+- **Gabi** - Palavra-chave ✅
 - **Aline** - Procedência
 - **Lucas Picanço Figueiredo** - Material ✅
 - **Yan Nascimento Balbi** - Técnica, Unidade Administrativa e Classificação Genérica ✅
