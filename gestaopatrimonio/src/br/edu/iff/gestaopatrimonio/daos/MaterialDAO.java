@@ -41,7 +41,7 @@ public class MaterialDAO {
     public Material atualizarMaterial(int id, String novoNome) {
     	PreparedStatement ps;
     	try {
-			ps = connection.prepareStatement("UPDATE material_generica SET nome = ? WHERE id = ?");
+			ps = connection.prepareStatement("UPDATE material SET nome = ? WHERE id = ?");
 			ps.setString(1, novoNome);
 			ps.setInt(2, id);
 			ps.executeUpdate();
@@ -54,29 +54,6 @@ public class MaterialDAO {
     	return null;
     }
     
-    public Material atualizarNomeMaterial(int id,String novoNome) {
-    	PreparedStatement ps;
-    	try {
-			ps = connection.prepareStatement("UPDATE material SET nome = ? WHERE id = ?");
-			ps.setString(1, novoNome);
-			ps.setInt(2, id);
-			ps.executeUpdate();
-			
-			PreparedStatement consulta;
-			consulta = connection.prepareStatement("SELECT * FROM material WHERE id = ?");
-			consulta.setInt(1, id);
-			ResultSet rs = consulta.executeQuery();
-			if(rs.next()) {
-				int idNovo = rs.getInt("id");
-				String nomeNovo = rs.getString("nome");
-				Material material = new Material(idNovo, nomeNovo);
-				return material;
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-    	return null;
-    }
     
     
     public void removerMaterial(int id) {
