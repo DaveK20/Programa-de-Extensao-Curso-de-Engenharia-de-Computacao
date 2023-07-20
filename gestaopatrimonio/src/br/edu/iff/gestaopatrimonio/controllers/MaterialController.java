@@ -30,13 +30,6 @@ public class MaterialController {
 		return null;
 	}
 	
-	public Material atualizarNomeMaterial( int id, String novoNome) {
-		if(novoNome.length()<=45) {
-			Material material = materialDAO.atualizarNomeMaterial(id, novoNome);
-			return material;
-		}
-		return null;
-	}
 	
 	
 	public List<Material> listarMaterial() {
