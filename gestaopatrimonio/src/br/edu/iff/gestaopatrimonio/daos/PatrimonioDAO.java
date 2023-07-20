@@ -329,7 +329,7 @@ public class PatrimonioDAO {
 	/**
 	 * @author hj_ro
 	 */
-	public boolean inserirAutorAUmPatrimonio(Autor autor, int patrimonio_id) throws SQLException {
+	public boolean vincularAutorAUmPatrimonio(Autor autor, int patrimonio_id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement("INSERT INTO patrimonio_has_autor (patrimonio_id "
 				+ "autor_id) VALUES (?,?)");
 		ps.setInt(1, autor.getId());
@@ -341,7 +341,7 @@ public class PatrimonioDAO {
 	/**
 	 * @author hj_ro
 	 */
-	public boolean excluirAutorAUmPatrimonio(int id) throws SQLException {
+	public boolean desvincularAutorAUmPatrimonio(int id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement("DELETE FROM patrimonio_has_autor WHERE id = ?");
 		ps.setInt(1, id);
 		ps.execute();
