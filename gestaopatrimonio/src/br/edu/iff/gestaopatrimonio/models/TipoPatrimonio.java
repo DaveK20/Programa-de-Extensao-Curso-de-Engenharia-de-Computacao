@@ -17,8 +17,8 @@ public class TipoPatrimonio {
 		return nome_tipo_patrimonio;
 	}
 
-	public void setNomeTipoPatrimonio(String nomeTipoPatrimonio) {
-		this.nomeTipoPatrimonio = nomeTipoPatrimonio;
+	public void SetNome_tipo_patrimonio(String nome_tipo_patrimonio) {
+		this.nome_tipo_patrimonio = nome_tipo_patrimonio;
 	}
 
 }
