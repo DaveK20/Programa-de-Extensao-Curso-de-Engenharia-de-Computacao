@@ -3,7 +3,7 @@ package br.edu.iff.gestaopatrimonio.models;
 public class TipoPatrimonio {
 
 	private int id;
-	private String nomeTipoPatrimonio;
+	private String nome_tipo_patrimonio;
 
 	public int getId() {
 		return id;
@@ -13,8 +13,8 @@ public class TipoPatrimonio {
 		this.id = id;
 	}
 
-	public String getNomeTipoPatrimonio() {
-		return nomeTipoPatrimonio;
+	public String getNome_tipo_patrimonio() {
+		return nome_tipo_patrimonio;
 	}
 
 	public void setNomeTipoPatrimonio(String nomeTipoPatrimonio) {
