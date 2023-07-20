@@ -68,8 +68,5 @@
 			}
 		}
 
-		public static PalavraChave cadastrarTecnica(PalavraChave palavra) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+		
 	}
