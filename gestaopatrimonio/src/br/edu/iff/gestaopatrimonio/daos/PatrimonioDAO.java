@@ -13,6 +13,8 @@ import java.util.List;
 
 import br.edu.iff.gestaopatrimonio.models.ClassificacaoGenerica;
 import br.edu.iff.gestaopatrimonio.models.Patrimonio;
+import br.edu.iff.gestaopatrimonio.models.Procedencia;
+import br.edu.iff.gestaopatrimonio.models.Tecnica;
 import br.edu.iff.gestaopatrimonio.models.TipoPatrimonio;
 import br.edu.iff.gestaopatrimonio.models.UnidadeAdministrativa;
 import br.edu.iff.gestaopatrimonio.utils.JDBCConnection;
@@ -208,5 +210,45 @@ public class PatrimonioDAO {
 		}
 		return false;
 	}
+	
+	/**
+	 * @author hj_ro
+	 * @author Yan
+	 */
+	public boolean vincularTecnicasAUmPatrimonio(List<Tecnica> tecnicas, int patrimonioId) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO patrimonio_has_tecnica (patrimonio_id, tecnica_id) VALUES (?,?)");
+		for (Tecnica tecnica : tecnicas) {
+			ps.setInt(1, patrimonioId);
+			ps.setInt(2, tecnica.getId());
+			ps.execute();
+		}
+		return true;
+	}
 
+	/**
+	 * @author hj_ro
+	 * @author Yan
+	 */
+	public boolean inserirProcedenciaAUmPatrimonio(Procedencia procedencia, int patrimonio_id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO procedencia (data, pais_id, estado_id, cidade_id,"
+				+ " patrimonio_id) VALUES (?,?,?,?,?)");
+		ps.setDate(1, java.sql.Date.valueOf( procedencia.getData()));
+		ps.setInt(2, procedencia.getPais().getId());
+		ps.setInt(3, procedencia.getEstado().getId());
+		ps.setInt(4, procedencia.getCidade().getId());
+		ps.setInt(5, patrimonio_id);
+		ps.execute();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 * @author Yan
+	 */
+	public boolean excluirProcedenciaAUmPatrimonio(int id) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("DELETE FROM procedencia WHERE id = ?");
+		ps.setInt(1, id);
+		ps.execute();
+		return true;
+	}
 }

@@ -49,7 +49,7 @@ public class PatrimonioController {
 	}
 	
 	private boolean vincularTecnicasAUmPatrimonio(List<Tecnica> tecnicas, int patrimonioId) throws SQLException {
-		tecnicaDAO.vincularTecnicasAUmPatrimonio(tecnicas, patrimonioId);
+		patrimonioDAO.vincularTecnicasAUmPatrimonio(tecnicas, patrimonioId);
 		return true;
 	}
 	

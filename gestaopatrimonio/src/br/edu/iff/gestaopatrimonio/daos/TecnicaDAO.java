@@ -95,20 +95,6 @@ public class TecnicaDAO {
 			return null;
 		}
 	}
-
-	/**
-	 * @author hj_ro
-	 * @author Yan
-	 */
-	public boolean vincularTecnicasAUmPatrimonio(List<Tecnica> tecnicas, int patrimonioId) throws SQLException {
-		PreparedStatement ps = connection.prepareStatement("INSERT INTO patrimonio_has_tecnica (patrimonio_id, tecnica_id) VALUES (?,?)");
-		for (Tecnica tecnica : tecnicas) {
-			ps.setInt(1, patrimonioId);
-			ps.setInt(2, tecnica.getId());
-			ps.execute();
-		}
-		return true;
-	}
 	
 	public List<Tecnica> listarPorPatrimonioId(int patrimonioId) throws SQLException{
 		/**
