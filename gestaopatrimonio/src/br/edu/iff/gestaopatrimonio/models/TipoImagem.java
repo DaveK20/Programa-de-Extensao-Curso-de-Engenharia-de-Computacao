@@ -12,7 +12,7 @@ public class TipoImagem {
 	public TipoImagem() {
 	}
 
-	public TipoImagem(int id, int largura, int altura, String descricao) {
+	public TipoImagem(int largura, int altura, String descricao) {
 		setId(id);
 		setAltura(altura);
 		setLargura(largura);
