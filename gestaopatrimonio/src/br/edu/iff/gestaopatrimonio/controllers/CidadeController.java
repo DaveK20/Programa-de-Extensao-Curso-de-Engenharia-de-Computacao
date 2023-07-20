@@ -18,9 +18,7 @@ import br.edu.iff.gestaopatrimonio.models.Cidade;
 	        cidadeDAO.adicionarCidade(cidade);
 	    }
 
-	    public void atualizarCidade(Cidade cidade) {
-	        cidadeDAO.atualizarCidade(cidade);
-	    }
+	 
 
 	    public void removerCidade(int id) {
 	        cidadeDAO.removerCidade(id);
