@@ -2,7 +2,7 @@
 ## Equipe
 
 - **Gabi Vicente da Silva Marcelino** - Palavra-chave ✅
-- **Aline Vilela Guarisi** - Procedência
+- **Aline Vilela Guarisi** - Procedência ✅
 - **Lucas Picanço Figueiredo** - Material ✅
 - **Yan Nascimento Balbi** - Técnica, Unidade Administrativa e Classificação Genérica ✅
 - **Rafael da Silva Rodrigues** - Tipo de patrimônio
