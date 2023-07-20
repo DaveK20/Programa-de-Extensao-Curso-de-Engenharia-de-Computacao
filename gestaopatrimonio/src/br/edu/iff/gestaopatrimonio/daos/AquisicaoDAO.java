@@ -46,7 +46,6 @@ public class AquisicaoDAO {
                 String data = resultSet.getString("data");
                 int formaAquisicaoId = resultSet.getInt("forma_aquisicao_id");
 
-                // Obter a forma de aquisição correspondente
                 FormaAquisicaoDAO formaAquisicaoDAO = new FormaAquisicaoDAO();
                 FormaAquisicao formaAquisicao = formaAquisicaoDAO.getFormaAquisicaoById(formaAquisicaoId);
 
