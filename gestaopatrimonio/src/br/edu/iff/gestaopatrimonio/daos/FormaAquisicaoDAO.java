@@ -15,7 +15,6 @@ public class FormaAquisicaoDAO {
     	connection = temp.getConnection();
     }
 
-    // Create - Inserir uma nova forma de aquisição
     public boolean insertFormaAquisicao(FormaAquisicao formaAquisicao) {
         try {
             PreparedStatement statement = connection.prepareStatement(
@@ -53,7 +52,6 @@ public class FormaAquisicaoDAO {
         return formasAquisicao;
     }
 
-    // Update - Atualizar uma forma de aquisição existente
     public boolean updateFormaAquisicao(FormaAquisicao formaAquisicao) {
         try {
             PreparedStatement statement = connection.prepareStatement(
@@ -93,7 +91,6 @@ public class FormaAquisicaoDAO {
         return formaAquisicao;
     }
 
-    // Delete - Excluir uma forma de aquisição
     public boolean deleteFormaAquisicao(int id) {
         try {
             PreparedStatement statement = connection.prepareStatement(
