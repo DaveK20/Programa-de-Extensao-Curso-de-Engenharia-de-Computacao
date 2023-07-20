@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.edu.iff.gestaopatrimonio.models.ClassificacaoGenerica;
+import br.edu.iff.gestaopatrimonio.models.Material;
 import br.edu.iff.gestaopatrimonio.models.Patrimonio;
 import br.edu.iff.gestaopatrimonio.models.Procedencia;
 import br.edu.iff.gestaopatrimonio.models.Tecnica;
@@ -227,7 +228,7 @@ public class PatrimonioDAO {
 
 	/**
 	 * @author hj_ro
-	 * @author Yan
+	 * @author Aline
 	 */
 	public boolean inserirProcedenciaAUmPatrimonio(Procedencia procedencia, int patrimonio_id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement("INSERT INTO procedencia (data, pais_id, estado_id, cidade_id,"
@@ -243,12 +244,36 @@ public class PatrimonioDAO {
 	
 	/**
 	 * @author hj_ro
-	 * @author Yan
+	 * @author Aline
 	 */
 	public boolean excluirProcedenciaAUmPatrimonio(int id) throws SQLException {
 		PreparedStatement ps = connection.prepareStatement("DELETE FROM procedencia WHERE id = ?");
 		ps.setInt(1, id);
 		ps.execute();
+		return true;
+	}
+	/**
+	 * @author hj_ro
+	 */
+	public boolean inserirMaterialAUmPatrimonio(int patrimonio_id_patrimonio, int material_id_material) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("INSERT INTO patrimonio_has_material "
+				+ "(patrimonio_is_patrimonio, material_id_material)"
+				+ " VALUES (?,?)");
+		ps.setInt(1, patrimonio_id_patrimonio);
+		ps.setInt(2, material_id_material);
+		ps.execute();
+		return true;
+	}
+	
+	/**
+	 * @author hj_ro
+	 */
+	public boolean excluirMaterialAUmPatrimonio(int patrimonio_id_patrimonio, int material_id_material) throws SQLException {
+		PreparedStatement ps = connection.prepareStatement("DELETE FROM Patrimonio_has_material "
+				+ "WHERE patrimonio_id_patrimonio = ? AND material_id_material = ?");
+		ps.setInt(1, patrimonio_id_patrimonio);
+		ps.setInt(2, material_id_material);
+		ps.executeUpdate();
 		return true;
 	}
 }
