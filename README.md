@@ -9,7 +9,7 @@
 - **Edivan** - Tipo de imagem ✅
 - **Ayrton** - Formas de aquisição e Aquisição ✅
 - **Árlisson** - Autor ✅
-- **João** - Nome alternativo
+- **João Pedro Silveira da Silva** - Nome alternativo✅
 - **Davi** - Imagem
 - **Halisson José Soares da Rocha** - Patrimônio ✅
 
